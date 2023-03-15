@@ -40,7 +40,7 @@ struct DayCalendarModel: Identifiable,Hashable{
 }
 
 // [마커 Data]
-struct MarkerModel: Identifiable, Equatable {
+struct MarkerModel: Identifiable, Equatable, Hashable {
     var id: String
     var title: String
     var photo: String

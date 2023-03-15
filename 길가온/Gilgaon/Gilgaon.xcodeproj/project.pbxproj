@@ -21,7 +21,6 @@
 		1683284329B6DCC800B3EF73 /* FlowerMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683284229B6DCC800B3EF73 /* FlowerMapViewModel.swift */; };
 		1683284529B6DD0E00B3EF73 /* DrawerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683284429B6DD0E00B3EF73 /* DrawerDetailView.swift */; };
 		1683284729B6DE6500B3EF73 /* UserMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683284629B6DE6500B3EF73 /* UserMapView.swift */; };
-		1683284929B6F9DB00B3EF73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1683284829B6F9DB00B3EF73 /* GoogleService-Info.plist */; };
 		16A60C1429B039C300116569 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 16A60C1329B039C300116569 /* SkeletonUI */; };
 		16A60C1629B0448600116569 /* SegmentControllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1529B0448600116569 /* SegmentControllView.swift */; };
 		16A60C1829B044DC00116569 /* FriendSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1729B044DC00116569 /* FriendSettingView.swift */; };
@@ -82,6 +81,7 @@
 		63660F4E2937216F00B70272 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63660F4D2937216F00B70272 /* ImagePicker.swift */; };
 		63660F522937573500B70272 /* Customtoggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63660F512937573500B70272 /* Customtoggle.swift */; };
 		6380E7802952C3EE007772C3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6380E77F2952C3EE007772C3 /* FirebaseStorage */; };
+		639D9A5429BA115A009D6EAA /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639D9A5329BA115A009D6EAA /* CalendarViewModel.swift */; };
 		63D2C123293836CD0011BC89 /* DayTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2C122293836CD0011BC89 /* DayTask.swift */; };
 		63D2C1282938379C0011BC89 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2C1272938379C0011BC89 /* TaskViewModel.swift */; };
 		63D2C12A2938388A0011BC89 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2C1292938388A0011BC89 /* DayView.swift */; };
@@ -107,7 +107,6 @@
 		1683284229B6DCC800B3EF73 /* FlowerMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerMapViewModel.swift; sourceTree = "<group>"; };
 		1683284429B6DD0E00B3EF73 /* DrawerDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerDetailView.swift; sourceTree = "<group>"; };
 		1683284629B6DE6500B3EF73 /* UserMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapView.swift; sourceTree = "<group>"; };
-		1683284829B6F9DB00B3EF73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../google info/길가온/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		16A60C1529B0448600116569 /* SegmentControllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControllView.swift; sourceTree = "<group>"; };
 		16A60C1729B044DC00116569 /* FriendSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSettingView.swift; sourceTree = "<group>"; };
 		16A60C1929B0463400116569 /* FriendRequestCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestCheckView.swift; sourceTree = "<group>"; };
@@ -164,6 +163,7 @@
 		635AE3AC29361A6D008A8452 /* DateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTask.swift; sourceTree = "<group>"; };
 		63660F4D2937216F00B70272 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		63660F512937573500B70272 /* Customtoggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customtoggle.swift; sourceTree = "<group>"; };
+		639D9A5329BA115A009D6EAA /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		63D2C122293836CD0011BC89 /* DayTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTask.swift; sourceTree = "<group>"; };
 		63D2C1272938379C0011BC89 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		63D2C1292938388A0011BC89 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
@@ -307,7 +307,6 @@
 				1642F0EC2938897E005A54EF /* Font */,
 				C0FA4348293623F4002D4473 /* Gilgaon.entitlements */,
 				6FF334CA2935F1D9007438B1 /* Info.plist */,
-				1683284829B6F9DB00B3EF73 /* GoogleService-Info.plist */,
 				635AE3842935E932008A8452 /* GilgaonApp.swift */,
 				3663C66D2938631E006880C9 /* MapVIew */,
 				635AE3A729361971008A8452 /* View */,
@@ -360,6 +359,7 @@
 				635AE39C2935E9F6008A8452 /* CalendarView.swift */,
 				16CFFE0529363BE900DC0B55 /* CalendarSelectView.swift */,
 				635AE3A229360793008A8452 /* CustomDataPicker.swift */,
+				639D9A5329BA115A009D6EAA /* CalendarViewModel.swift */,
 				63D2C1292938388A0011BC89 /* DayView.swift */,
 				C0B7045A29388F1200245ED7 /* Sakura.json */,
 				16FA82C7293906A6006129D3 /* PopupTest.swift */,
@@ -478,7 +478,6 @@
 				6FF334C92935F1CD007438B1 /* Config.xcconfig in Resources */,
 				1642F0FA29388BC6005A54EF /* NotoSerifKR-Regular.otf in Resources */,
 				C0B7045B29388F1200245ED7 /* Sakura.json in Resources */,
-				1683284929B6F9DB00B3EF73 /* GoogleService-Info.plist in Resources */,
 				16FA82C6293903BC006129D3 /* InviteFriendLottie.json in Resources */,
 				1642F10029388BC6005A54EF /* NotoSerifKR-ExtraLight.otf in Resources */,
 				1642F0FB29388BC6005A54EF /* NotoSerifKR-Light.otf in Resources */,
@@ -519,6 +518,7 @@
 				16F69DB729387E030045CD91 /* GilgaonRequestPermissonView.swift in Sources */,
 				16A60C1629B0448600116569 /* SegmentControllView.swift in Sources */,
 				16CFFE0629363BEA00DC0B55 /* CalendarSelectView.swift in Sources */,
+				639D9A5429BA115A009D6EAA /* CalendarViewModel.swift in Sources */,
 				635AE3952935E9DC008A8452 /* LoginView.swift in Sources */,
 				16F69DA7293845E80045CD91 /* LottieView.swift in Sources */,
 				36BB028B29518BD300CF2816 /* WritingView.swift in Sources */,
