@@ -13,7 +13,7 @@ struct CustomDataPicker: View {
     @ObservedObject var calendarVViewModel: CalendarVViewModel
     @State var currentDate = Date()
     // @StateObject var fireStoreModel: FireStoreViewModel = FireStoreViewModel()
-    // @StateObject var calendarViewModel: CalendarViewModel = CalendarViewModel()
+    @StateObject var calendarViewModel: CalendarViewModel = CalendarViewModel()
 
     @Binding var calID: [String]
     @State var currentMonth: Int = 0

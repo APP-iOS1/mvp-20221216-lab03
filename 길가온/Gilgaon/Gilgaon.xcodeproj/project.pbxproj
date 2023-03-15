@@ -26,6 +26,7 @@
 		16A60C1829B044DC00116569 /* FriendSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1729B044DC00116569 /* FriendSettingView.swift */; };
 		16A60C1A29B0463400116569 /* FriendRequestCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1929B0463400116569 /* FriendRequestCheckView.swift */; };
 		16A60C1C29B04AFF00116569 /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1B29B04AFF00116569 /* FriendViewModel.swift */; };
+		16AA0B8629C1E52C002FB416 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */; };
 		16CA72952939BDE200D451F0 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 16CA72942939BDE200D451F0 /* AppIcon.appiconset */; };
 		16CFFE0629363BEA00DC0B55 /* CalendarSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFFE0529363BE900DC0B55 /* CalendarSelectView.swift */; };
 		16CFFE0829363CEF00DC0B55 /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFFE0729363CEF00DC0B55 /* InviteFriendView.swift */; };
@@ -48,7 +49,6 @@
 		16FA82CB293906BA006129D3 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 16FA82CA293906BA006129D3 /* PopupView */; };
 		362A085129557CC500C582B4 /* AddMarkerFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362A085029557CC500C582B4 /* AddMarkerFriendView.swift */; };
 		362DC67429389FD100507017 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DC67329389FD100507017 /* LocationFetcher.swift */; };
-		3651BB8729B9A9620083F401 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3651BB8629B9A9620083F401 /* GoogleService-Info.plist */; };
 		3651BB8929B9AB620083F401 /* FlowerRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651BB8829B9AB620083F401 /* FlowerRecordView.swift */; };
 		3651BB8B29B9D70A0083F401 /* CustomSheetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651BB8A29B9D70A0083F401 /* CustomSheetModifier.swift */; };
 		3651BB8D29B9DAD10083F401 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651BB8C29B9DAD10083F401 /* CustomSheetView.swift */; };
@@ -65,7 +65,6 @@
 		369CB73E293726E700C2E4BF /* JogakData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CB73D293726E700C2E4BF /* JogakData.swift */; };
 		36A0C2802954423700DFDD45 /* OnboardingMapDescribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0C27F2954423700DFDD45 /* OnboardingMapDescribeView.swift */; };
 		36BB028B29518BD300CF2816 /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB028A29518BD300CF2816 /* WritingView.swift */; };
-		4C34E29829B7050F0058B1E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C34E29729B7050E0058B1E8 /* GoogleService-Info.plist */; };
 		4C7CB7FE29BEBAAE00B69EC9 /* GuestBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */; };
 		4C7CB80029BF053B00B69EC9 /* GuestBookWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CB7FF29BF053B00B69EC9 /* GuestBookWritingView.swift */; };
 		634BC63E2950369D0044B38B /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC63D2950369D0044B38B /* DrawerView.swift */; };
@@ -98,7 +97,6 @@
 		6FF334C52935F1B3007438B1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 6FF334C42935F1B3007438B1 /* KakaoSDKCommon */; };
 		6FF334C72935F1B3007438B1 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 6FF334C62935F1B3007438B1 /* KakaoSDKUser */; };
 		6FF334C92935F1CD007438B1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6FF334C82935F1CC007438B1 /* Config.xcconfig */; };
-		C068E0AA29BDFFCD0070D71A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C068E0A929BDFFCC0070D71A /* GoogleService-Info.plist */; };
 		C068E0AE29BE04770070D71A /* FriendDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0AD29BE04770070D71A /* FriendDrawerView.swift */; };
 		C068E0B229BE1B720070D71A /* FriendFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0B129BE1B720070D71A /* FriendFriendView.swift */; };
 		C068E0BA29BE476F0070D71A /* FriendDrawerCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0B929BE476F0070D71A /* FriendDrawerCommentView.swift */; };
@@ -125,6 +123,7 @@
 		16A60C1729B044DC00116569 /* FriendSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSettingView.swift; sourceTree = "<group>"; };
 		16A60C1929B0463400116569 /* FriendRequestCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestCheckView.swift; sourceTree = "<group>"; };
 		16A60C1B29B04AFF00116569 /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
+		16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		16CA72942939BDE200D451F0 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		16CFFE0529363BE900DC0B55 /* CalendarSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelectView.swift; sourceTree = "<group>"; };
 		16CFFE0729363CEF00DC0B55 /* InviteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendView.swift; sourceTree = "<group>"; };
@@ -145,7 +144,6 @@
 		16FA82C7293906A6006129D3 /* PopupTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTest.swift; sourceTree = "<group>"; };
 		362A085029557CC500C582B4 /* AddMarkerFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkerFriendView.swift; sourceTree = "<group>"; };
 		362DC67329389FD100507017 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
-		3651BB8629B9A9620083F401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3651BB8829B9AB620083F401 /* FlowerRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerRecordView.swift; sourceTree = "<group>"; };
 		3651BB8A29B9D70A0083F401 /* CustomSheetModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetModifier.swift; sourceTree = "<group>"; };
 		3651BB8C29B9DAD10083F401 /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 		369CB73D293726E700C2E4BF /* JogakData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogakData.swift; sourceTree = "<group>"; };
 		36A0C27F2954423700DFDD45 /* OnboardingMapDescribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMapDescribeView.swift; sourceTree = "<group>"; };
 		36BB028A29518BD300CF2816 /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
-		4C34E29729B7050E0058B1E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookView.swift; sourceTree = "<group>"; };
 		4C7CB7FF29BF053B00B69EC9 /* GuestBookWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookWritingView.swift; sourceTree = "<group>"; };
 		634BC63D2950369D0044B38B /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
@@ -191,7 +188,6 @@
 		63D2C1292938388A0011BC89 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		6FF334C82935F1CC007438B1 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		6FF334CA2935F1D9007438B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		C068E0A929BDFFCC0070D71A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info/길가온/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C068E0AD29BE04770070D71A /* FriendDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDrawerView.swift; sourceTree = "<group>"; };
 		C068E0B129BE1B720070D71A /* FriendFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFriendView.swift; sourceTree = "<group>"; };
 		C068E0B929BE476F0070D71A /* FriendDrawerCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDrawerCommentView.swift; sourceTree = "<group>"; };
@@ -227,7 +223,7 @@
 		161510BC29502BD100BA7FFE /* NewGilgaon */ = {
 			isa = PBXGroup;
 			children = (
-				3651BB8629B9A9620083F401 /* GoogleService-Info.plist */,
+				16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */,
 				161510BD29502BE600BA7FFE /* RegisterView.swift */,
 				161510C6295036B300BA7FFE /* RegisterModel.swift */,
 				C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */,
@@ -347,7 +343,6 @@
 				C0FA4348293623F4002D4473 /* Gilgaon.entitlements */,
 				6FF334CA2935F1D9007438B1 /* Info.plist */,
 				635AE3842935E932008A8452 /* GilgaonApp.swift */,
-				C068E0A929BDFFCC0070D71A /* GoogleService-Info.plist */,
 				3663C66D2938631E006880C9 /* MapVIew */,
 				635AE3A729361971008A8452 /* View */,
 				63D2C1242938371C0011BC89 /* ViewModel */,
@@ -513,6 +508,7 @@
 			files = (
 				635AE38C2935E934008A8452 /* Preview Assets.xcassets in Resources */,
 				1642F0FD29388BC6005A54EF /* NotoSerifKR-Medium.otf in Resources */,
+				16AA0B8629C1E52C002FB416 /* GoogleService-Info.plist in Resources */,
 				1642F0FC29388BC6005A54EF /* NotoSerifKR-SemiBold.otf in Resources */,
 				1642F0FF29388BC6005A54EF /* NotoSerifKR-Bold.otf in Resources */,
 				16CA72952939BDE200D451F0 /* AppIcon.appiconset in Resources */,
