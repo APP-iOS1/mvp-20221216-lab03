@@ -21,7 +21,9 @@ struct FlowerMapView: View {
     @State var userTracking = MapUserTrackingMode.follow
     @State var value = 0
     var body: some View {
-        UserMapView(flowerMapViewModel: flowerMapViewModel).overlay{
+        UserMapView(flowerMapViewModel: flowerMapViewModel)
+            .ignoresSafeArea()
+            .overlay{
             VStack{
                 header
                     .padding()
@@ -37,6 +39,7 @@ struct FlowerMapView: View {
                 }
             }
         }
+        
         .onAppear{
             Task{
                 print(getStringValue)

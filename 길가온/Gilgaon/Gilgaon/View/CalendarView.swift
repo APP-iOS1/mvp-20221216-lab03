@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CalendarView: View {
-    
+    @StateObject private var calendarVViewModel = CalendarVViewModel()
+    @State var currentDate = Date()
     @State var calID: [String] = []
     @State var isTapped: Bool = true
     
@@ -17,12 +18,20 @@ struct CalendarView: View {
         ZStack {
             Color("White")
                 .ignoresSafeArea()
-            
-            VStack(spacing: 20) {
-                CustomDataPicker(calID: $calID)
-            }
-            .padding(.vertical)
-        }
+
+                VStack(spacing: 20) {
+                    CustomDataPicker(calendarVViewModel: calendarVViewModel, currentDate: currentDate, calID: $calID)
+                }
+                .padding(.vertical)
+        }.customSheet(
+            isPresented: $calendarVViewModel.isTapped,
+            isRecording: $calendarVViewModel.isRecordingStatus,
+            title: "",
+            message: "",
+            firstButtonTitle: "",
+            firstButtonAction: {calendarVViewModel.isTapped = false }
+        )
+
     }
 }
 

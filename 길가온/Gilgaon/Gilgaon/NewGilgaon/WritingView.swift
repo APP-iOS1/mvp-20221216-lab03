@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct WritingView: View {
-    @ObservedObject var firestoreViewModel:FireStoreViewModel
+    @EnvironmentObject var firestoreViewModel:FireStoreViewModel
     
     @EnvironmentObject var viewModel: SearchViewModel
     
@@ -211,6 +211,6 @@ struct MyPath3: Shape {
 
 struct WritingView_Previews: PreviewProvider {
     static var previews: some View {
-        WritingView(firestoreViewModel: FireStoreViewModel())
+        WritingView()
     }
 }

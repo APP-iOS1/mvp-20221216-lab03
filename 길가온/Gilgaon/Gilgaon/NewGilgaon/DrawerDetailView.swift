@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DrawerDetailView: View {
     
+    @AppStorage("isRecording") var isRecordingStatus: Bool = UserDefaults.standard.bool(forKey: "isRecording")
     @EnvironmentObject var fireStoreViewModel: FireStoreViewModel
     @StateObject var friendViewModel = FriendViewModel()
     @State private var middleView: MiddleView = .guestBook
@@ -18,7 +19,7 @@ struct DrawerDetailView: View {
     @State private var showPicker: Bool = false
     @State private var profileImage: UIImage? = nil
     @State var userProfile: FireStoreModel?
-
+    @State var selectRecording = false
     var middleViewArray: [MiddleView] = [.list, .guestBook]
     
     var body: some View {
@@ -99,8 +100,6 @@ struct DrawerDetailView: View {
                                             // 선택 완료 버튼
                                             Button {
                                                 photoEditing = false
-                                                
-                                                
                                                 let userProfile = FireStoreModel(id: fireStoreViewModel.info?.id ?? "", nickName: fireStoreViewModel.userNickName, userPhoto: fireStoreViewModel.info?.userPhoto ?? "", userEmail: fireStoreViewModel.info?.userEmail ?? "")
                                                 Task{
                                                     await fireStoreViewModel.uploadImageToStorage(userImage: profileImage, user: userProfile)
@@ -138,11 +137,12 @@ struct DrawerDetailView: View {
 //                            AddFriendView(friendViewModel: friendViewModel)
                             FriendSettingView()
                         } label: {
-                            
                             Text("\(fireStoreViewModel.myFriendArray.count)명의 친구")
                                 .font(.custom("NotoSerifKR-Regular",size:16))
                             
                         }
+                        Text(isRecordingStatus ? "기록중" : "기록안하는중")
+                        
                     }
                     Spacer()
                 }
@@ -203,6 +203,35 @@ extension DrawerDetailView {
             .bold()
             .padding(.bottom, 10)
     }
+    
+    
+    // 보류
+    @ViewBuilder
+    private func recordButton() -> some View {
+        if !selectRecording {
+            Button {
+                selectRecording.toggle()
+            } label: {
+                Text("기록하기")
+            }
+
+        }else{
+            HStack{
+                Button {
+                    selectRecording.toggle()
+                } label: {
+                    Text("기록완료")
+                }
+                
+                Button {
+                    
+                } label: {
+                    Text("마커찍기")
+                }
+            }
+        }
+    }
+    
 }
 
 struct DrawerDetailView_Previews: PreviewProvider {
