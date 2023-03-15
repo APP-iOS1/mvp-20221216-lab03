@@ -66,21 +66,21 @@ struct FlowerRecordView: View {
                                 .fontWeight(.bold)
                         }
                         HStack{
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "person.badge.plus")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20)
-                                Text("친구 등록")
-                                    .font(.custom("NotoSerifKR-Regular",size:18))
-                            }
-                            .padding(12)
-                            .foregroundColor(.black)
-                            .frame(minWidth: 120)
-                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("Pink")))
-                            friendCellView
+//                            Button {
+//
+//                            } label: {
+//                                Image(systemName: "person.badge.plus")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 20)
+//                                Text("친구 등록")
+//                                    .font(.custom("NotoSerifKR-Regular",size:18))
+//                            }
+//                            .padding(12)
+//                            .foregroundColor(.black)
+//                            .frame(minWidth: 120)
+//                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("Pink")))
+//                            friendCellView
                         }
                     }
                     Spacer()
