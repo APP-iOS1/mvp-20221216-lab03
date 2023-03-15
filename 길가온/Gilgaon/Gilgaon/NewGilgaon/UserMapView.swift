@@ -9,16 +9,40 @@
 import SwiftUI
 import UIKit
 import MapKit
+import Combine
 
 
 struct UserMapView: UIViewRepresentable {
     @ObservedObject var flowerMapViewModel: FlowerMapViewModel
+    @EnvironmentObject var locationFetcher: LocationFetcher
+    var startCoordinate = CLLocationCoordinate2D(latitude: 37.26188076, longitude: 127.10893442)
+    var endCoordinate = CLLocationCoordinate2D(latitude: 37.27404621, longitude: 127.11990530)
     
     // func makeUIView() == func body() -> some View {}
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: "custom")
         setSubscriber(mapView)
+        
+        mapView.showsUserLocation = true
+        mapView.setUserTrackingMode(.follow, animated: true)
+        
+        if CLLocationCoordinate2DIsValid(startCoordinate) {
+            let region = MKCoordinateRegion(center: startCoordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            mapView.region = region
+        }
+
+        
+        locationFetcher.$points.sink { _ in
+        } receiveValue: { data in
+            let dt = MKPolyline(coordinates: data, count: data.count)
+            print(data)
+            mapView.addOverlay(dt)
+            mapView.setRegion(MKCoordinateRegion(dt.boundingMapRect), animated: true)
+
+        }
+
+        
         return mapView
     }
     
@@ -33,6 +57,13 @@ struct UserMapView: UIViewRepresentable {
         uiView.delegate = context.coordinator
         uiView.setRegion(flowerMapViewModel.mapRegions, animated: true)
         uiView.addAnnotations(makePins())
+        locationFetcher.$points.sink { _ in
+        } receiveValue: { data in
+            let dt = MKPolyline(coordinates: data, count: data.count)
+            uiView.addOverlay(dt)
+//            uiView.setRegion(MKCoordinateRegion(dt.boundingMapRect), animated: true)
+//            uiView.setRegion(MKCoordinateRegion(center: dt.coordinate, latitudinalMeters: 1.0, longitudinalMeters: 1.0), animated: true)
+        }
     }
     
     func makeCoordinator() -> UserMapViewCoordinator {
@@ -90,6 +121,13 @@ class UserMapViewCoordinator: NSObject, MKMapViewDelegate{
                 mapViewController.flowerMapViewModel.updateMapRegions(location)
             }
         }
+    }
+    
+    func mapView( _ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let render = MKPolylineRenderer(overlay: overlay)
+        render.strokeColor = .orange
+        render.lineWidth = 2.0
+        return render
     }
     
     func setUpImage(_ annotation: LandmarkAnnotation) -> UIImage?{
