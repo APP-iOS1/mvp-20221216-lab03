@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct CustomDataPicker: View {
+
     @EnvironmentObject var fireStoreModel: FireStoreViewModel
     @ObservedObject var calendarVViewModel: CalendarVViewModel
     @State var currentDate = Date()
+    // @StateObject var fireStoreModel: FireStoreViewModel = FireStoreViewModel()
+    // @StateObject var calendarViewModel: CalendarViewModel = CalendarViewModel()
+
     @Binding var calID: [String]
     @State var currentMonth: Int = 0
     
     let days: [String] = ["일", "월", "화", "수", "목", "금", "토"]
-    
+        
     var body: some View {
-        ScrollView{
+        
+        ScrollView(showsIndicators: false) {
             ScrollViewReader { value in
                 VStack(spacing: 35) {
                     
@@ -107,15 +112,11 @@ struct CustomDataPicker: View {
                                         )
                                         .onTapGesture {
                                             currentDate = value.date
-//                                            print(value.date)
-                                            let createdAt = value.date.timeIntervalSince1970
                                         }
                                 }
                             }
                             .onAppear {
-                                Task {
-                                    try! await fireStoreModel.fetchDayCalendar()
-                                }
+                                fireStoreModel.fetchDayCalendar()
                             }
                         }
                         .offset(y: 20)
@@ -123,15 +124,68 @@ struct CustomDataPicker: View {
                     
                     VStack(spacing: 15) {
                         // 달력 밑에 데이터 보여주고 싶으면 여기에
+                        HStack {
+                            Text("꽃갈피 기록")
+                                .font(.custom("NotoSerifKR-Bold", size: 20))
+                                .foregroundColor(Color("DarkGray"))
+                            Image(systemName: "leaf")
+                                .rotation3DEffect(Angle(degrees: 180), axis: (x: 0, y: 1, z: 0))
+                                .font(.title2)
+                                .foregroundColor(Color("Pink"))
+                                .font(.custom("NotoSerifKR-SemiBold", size: 20))
+                            Spacer()
+                        }
+                        .padding(.vertical, 20)
+                        
+                        if let dateTask = fireStoreModel.calendarList.first(where: { task in
+                            return isSameDay(date1: Date(timeIntervalSince1970: task.realDate), date2: currentDate)
+                        })
+                        {
+                            CalendarSelectView(calendarViewModel: calendarViewModel)
+                                .onAppear {
+                                    Task {
+                                        calendarViewModel.mapID = dateTask.id
+                                        await calendarViewModel.fetchMap()
+                                        calendarViewModel.mapID = ""
+                                    }
+                                }
+                                .onChange(of: dateTask.id) { newValue in
+                                    Task {
+                                        calendarViewModel.mapDataList = []
+                                        
+                                        calendarViewModel.mapID = newValue
+                                        await calendarViewModel.fetchMap()
+                                        
+                                    }
+                                }
+                        }
+                        else {
+                            Text("남겨진 꽃갈피가 없습니다.")
+                                .font(.custom("NotoSerifKR-SemiBold", size: 15))
+                        }
                     }
+                    .foregroundColor(Color("DarkGray"))
                     .padding()
                 }
                 .onChange(of: currentMonth) { newValue in
                     currentDate = getCurrentMonth()
                 }
-            }//ScrollView
+            }
         }
-        
+        .gesture(
+            DragGesture()
+                .onEnded { gesture in
+                    if gesture.translation.width < 0 {
+                        withAnimation(.spring()) {
+                            currentMonth += 1
+                        }
+                    } else {
+                        withAnimation(.spring()) {
+                            currentMonth -= 1
+                        }
+                    }
+                }
+        )
     }
     
     @ViewBuilder
@@ -167,7 +221,6 @@ struct CustomDataPicker: View {
         .padding(.vertical, 9)
         .frame(height: 60, alignment: .top)
     }
-    
     
     func isSameDay(date1: Date, date2: Date) -> Bool {
         
@@ -220,13 +273,13 @@ struct CustomDataPicker: View {
 }
 
 
-struct CustomDataPicker_Previews: PreviewProvider {
-    static var previews: some View {
-        CalendarView()
-    }
-}
+//struct CustomDataPicker_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CalendarView()
+//    }
+//}
 
-
+// 현재 월 날짜 가져오기
 extension Date {
     
     func getAllDates() -> [Date] {

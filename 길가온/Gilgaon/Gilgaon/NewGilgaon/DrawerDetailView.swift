@@ -12,7 +12,7 @@ struct DrawerDetailView: View {
     @AppStorage("isRecording") var isRecordingStatus: Bool = UserDefaults.standard.bool(forKey: "isRecording")
     @EnvironmentObject var fireStoreViewModel: FireStoreViewModel
     @StateObject var friendViewModel = FriendViewModel()
-    @State private var middleView: MiddleView = .schedule
+    @State private var middleView: MiddleView = .guestBook
     @Binding var showMenu: Bool
     // 프로필 편집 모드
     @State private var photoEditing: Bool = false
@@ -20,7 +20,7 @@ struct DrawerDetailView: View {
     @State private var profileImage: UIImage? = nil
     @State var userProfile: FireStoreModel?
     @State var selectRecording = false
-    var middleViewArray: [MiddleView] = [.schedule, .list]
+    var middleViewArray: [MiddleView] = [.list, .guestBook]
     
     var body: some View {
         GeometryReader { geometry in
@@ -172,8 +172,8 @@ struct DrawerDetailView: View {
                 }
                 
                 switch middleView {
-                case .schedule:
-                    DrawerScheduleView()
+                case .guestBook:
+                    GuestBookView()
                 case .list:
                     DrawerListView()
                 }

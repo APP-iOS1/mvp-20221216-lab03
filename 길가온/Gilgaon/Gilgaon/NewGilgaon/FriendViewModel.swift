@@ -15,6 +15,10 @@ class FriendViewModel: ObservableObject {
     @Published var friendRequestArray: [FriendModel] = []
     @Published var friendRequestArrayUid: [String] = []
     @Published var listener: ListenerRegistration?
+    @Published var myFriendFriendArray: [FriendModel] = []
+    @Published var friendCalendarList:[DayCalendarModel] = []
+    @Published var friendCalendarListSharedFriend: [FriendModel] = []
+    @Published var markerList: [MarkerModel] = []
     let database = Firestore.firestore()
     //상대방이 추가할 때 내 아이디에 친구의 uid를 담아준다.
     
@@ -146,5 +150,124 @@ class FriendViewModel: ObservableObject {
                     }
                 }
             }
+    }
+    
+    //친구의 친구목록을 조회하는 함수
+    func fetchFriendFriend(userUid: String) async{
+         database
+            .collection("User")
+            .document(userUid)
+            .collection("Friend")
+            .getDocuments { (snapshot, error) in
+                self.myFriendFriendArray.removeAll()
+                if let snapshot {
+                    for document in snapshot.documents {
+                        let id: String = document.documentID
+                        let docData = document.data()
+                        let nickName: String = docData["nickName"] as? String ?? ""
+                        let userPhoto: String = docData["userPhoto"] as? String ?? ""
+                        let userEmail: String = docData["userEmail"] as? String ?? ""
+                        
+                        let friendInstance: FriendModel = FriendModel(id: id, nickName: nickName, userPhoto: userPhoto, userEmail: userEmail)
+                        
+                        self.myFriendFriendArray.append(friendInstance)
+                    }
+                    print("니친구들 다보여줘바")
+                    print(self.myFriendFriendArray)
+                }
+            }
+    }
+    
+    //친구의 서랍목록을 조회하는 함수
+    func fetchFriendDayCalendar(userUid: String) async{
+        database
+            .collection("User")
+            .document(userUid)
+            .collection("Calendar")
+            .order(by: "realDate", descending: true)
+            .getDocuments { (snapshot, error) in
+                self.friendCalendarList.removeAll()
+                if let snapshot{
+                    for document in snapshot.documents{
+                        let id = document.documentID
+                        let docData = document.data()
+                        let createdAt = docData["createdAt"] as? Double ?? 0
+                        let title = docData["title"] as? String ?? ""
+                        let shareFriend = docData["shareFriend"] as? [String] ?? []
+                        let taskDate = docData["taskDate"] as? Date ?? Date()
+                        let realDate = docData["realDate"] as? Double ?? 0.0
+//                        print("realDate: \(realDate)")
+                        let calendarData = DayCalendarModel(id: id, taskDate: taskDate, title: title, shareFriend: shareFriend, realDate: realDate)
+                        print(#function)
+                        self.friendCalendarList.append(calendarData)
+                        print("친구 서랍 데이터입니다")
+                        print(calendarData)
+                    }
+                }
+            }
+    }
+    
+    // 친구의 id를 가지고 유저를 조회해 사진 url 가져오는 함수
+    @MainActor
+    func fetchFriendDayCalendarFriendGetImageURL(userId: [String]) async -> [FriendModel] {
+        print(#function)
+        
+        self.friendCalendarListSharedFriend.removeAll()
+        
+        do {
+            let snapshot = try await database.collection("User").getDocuments()
+            for docoment in snapshot.documents {
+                let id: String = docoment.documentID
+                let docData = docoment.data()
+                let nickName: String = docData["nickName"] as? String ?? ""
+                let userPhoto: String = docData["userPhoto"] as? String ?? ""
+                let userEmail: String = docData["userEmail"] as? String ?? ""
+                let user: FriendModel = FriendModel(id: id, nickName: nickName, userPhoto: userPhoto, userEmail: userEmail)
+                
+                for id in userId {
+                    if user.id == id {
+                        self.friendCalendarListSharedFriend.append(user)
+                    }
+                }
+            }
+            self.friendCalendarListSharedFriend = Array(Set(self.friendCalendarListSharedFriend))
+            return self.friendCalendarListSharedFriend
+        } catch {
+            print("User 정보 가져오기 실패")
+            return []
+        }
+    }
+    
+    // [마커 가져오기]
+    @MainActor
+    func fetchMarkers(userUid: String, inputID: String) async -> [MarkerModel] {
+        print(#function)
+        var markerArr: [MarkerModel] = []
+        let ref = database.collection("User").document(userUid).collection("Calendar").document(inputID).collection("Marker")
+        do{
+            let querySnapshots = try await ref.getDocuments()
+            for document in querySnapshots.documents{
+                let id: String = document.documentID
+                let docData = document.data()
+                let title: String = docData["title"] as? String ?? ""
+                let photo: String = docData["photo"] as? String ?? ""
+                let createdAt: Double = docData["createdAt"] as? Double ?? 0
+                let contents: String = docData["contents"] as? String ?? ""
+                let locationName: String = docData["locationName"] as? String ?? ""
+                let lat: String = docData["lat"] as? String ?? ""
+                let lon: String = docData["lon"] as? String ?? ""
+                let sharedFriend:[String] = docData["sharedFriend"] as? [String] ?? []
+                
+                let marker: MarkerModel = MarkerModel(id: id, title: title, photo: photo, createdAt: createdAt, contents: contents, locationName: locationName, lat: lat, lon: lon, shareFriend: sharedFriend)
+                
+                markerArr.append(marker)
+                LocationsDataService.locations = self.markerList
+            }
+            return markerArr
+        }catch{
+            return []
+        }
+        
+        
     }
 }

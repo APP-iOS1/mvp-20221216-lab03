@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 enum MiddleView: String {
-    case schedule = "꽃갈피"
+    case guestBook = "방명록"
     case list = "서랍"
 }
 

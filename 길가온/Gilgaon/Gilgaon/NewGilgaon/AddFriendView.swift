@@ -14,10 +14,15 @@ struct AddFriendView: View {
     var body: some View {
         
         if fireStoreViewModel.myFriendArray.count > 0 {
+
                 VStack {
                     List {
                         SkeletonForEach(with: fireStoreViewModel.myFriendArray) { loading,myFriend in
                             
+                            
+                            NavigationLink {
+                                FriendDrawerView(friendID: myFriend?.id ?? "")
+                            } label: {
                             HStack(alignment: .center) {
                                 // profile Image
                                 if let url = myFriend?.userPhoto,
@@ -95,6 +100,11 @@ struct AddFriendView: View {
                             .bold()
                     }
             }
+            }
+
+            
+     
+            
         } else {
             ZStack {
                 Color("White")

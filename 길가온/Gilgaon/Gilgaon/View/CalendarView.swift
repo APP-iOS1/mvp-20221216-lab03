@@ -12,13 +12,13 @@ struct CalendarView: View {
     @State var currentDate = Date()
     @State var calID: [String] = []
     @State var isTapped: Bool = true
-
+    
     var body: some View {
-        
         
         ZStack {
             Color("White")
                 .ignoresSafeArea()
+
                 VStack(spacing: 20) {
                     CustomDataPicker(calendarVViewModel: calendarVViewModel, currentDate: currentDate, calID: $calID)
                 }
@@ -31,6 +31,7 @@ struct CalendarView: View {
             firstButtonTitle: "",
             firstButtonAction: {calendarVViewModel.isTapped = false }
         )
+
     }
 }
 
