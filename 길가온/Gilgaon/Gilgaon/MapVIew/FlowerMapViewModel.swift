@@ -11,6 +11,7 @@ import Combine
 
 final class FlowerMapViewModel: ObservableObject{
     let firestoreViewModel = FireStoreViewModel()
+    let friendViewModel = FriendViewModel()
     
     @Published var locations:[MarkerModel] = []
     @Published var mapRegions = MKCoordinateRegion()
@@ -52,6 +53,19 @@ final class FlowerMapViewModel: ObservableObject{
     @MainActor
     func fetchMarkers(inputID: String) async {
         self.locations = await firestoreViewModel.fetchMarkers(inputID: inputID)
+        print(locations)
+        if !locations.isEmpty {
+            mapLocation = locations[0]
+            updateMapRegions(mapLocation)
+        }
+        
+//        mapRegions = MKCoordinateRegion(center: <#T##CLLocationCoordinate2D#>, span: <#T##MKCoordinateSpan#>)
+//        mapRegions = locations[0]
+    }
+    
+    @MainActor
+    func fetchFriendMarkers(userUid: String, inputID: String) async {
+        self.locations = await friendViewModel.fetchMarkers(userUid: userUid, inputID: inputID)
         print(locations)
         if !locations.isEmpty {
             mapLocation = locations[0]
