@@ -56,9 +56,9 @@ struct OnboardingTabView: View {
             VStack {
                 Spacer()
                 Button {
-                    Task {
-                        await self.locationFetcher.setLocationManager()
-                    }
+//                    Task {
+//                        await self.locationFetcher.setLocationManager()
+//                    }
 //                    sleep(3)
                     isFirstLaunching = false
                 } label: {

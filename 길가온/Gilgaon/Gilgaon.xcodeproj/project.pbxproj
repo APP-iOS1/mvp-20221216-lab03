@@ -11,6 +11,7 @@
 		161510C32950305A00BA7FFE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 161510C22950305A00BA7FFE /* FirebaseAuth */; };
 		161510C52950305A00BA7FFE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 161510C42950305A00BA7FFE /* FirebaseFirestore */; };
 		161510C7295036B300BA7FFE /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161510C6295036B300BA7FFE /* RegisterModel.swift */; };
+		163247A029C1F78B00DD8FDD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1632479F29C1F78B00DD8FDD /* GoogleService-Info.plist */; };
 		1642F0FA29388BC6005A54EF /* NotoSerifKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1642F0F329388BC4005A54EF /* NotoSerifKR-Regular.otf */; };
 		1642F0FB29388BC6005A54EF /* NotoSerifKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1642F0F429388BC5005A54EF /* NotoSerifKR-Light.otf */; };
 		1642F0FC29388BC6005A54EF /* NotoSerifKR-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1642F0F529388BC5005A54EF /* NotoSerifKR-SemiBold.otf */; };
@@ -26,7 +27,6 @@
 		16A60C1829B044DC00116569 /* FriendSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1729B044DC00116569 /* FriendSettingView.swift */; };
 		16A60C1A29B0463400116569 /* FriendRequestCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1929B0463400116569 /* FriendRequestCheckView.swift */; };
 		16A60C1C29B04AFF00116569 /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1B29B04AFF00116569 /* FriendViewModel.swift */; };
-		16AA0B8629C1E52C002FB416 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */; };
 		16CA72952939BDE200D451F0 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 16CA72942939BDE200D451F0 /* AppIcon.appiconset */; };
 		16CFFE0629363BEA00DC0B55 /* CalendarSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFFE0529363BE900DC0B55 /* CalendarSelectView.swift */; };
 		16CFFE0829363CEF00DC0B55 /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFFE0729363CEF00DC0B55 /* InviteFriendView.swift */; };
@@ -109,6 +109,7 @@
 /* Begin PBXFileReference section */
 		161510BD29502BE600BA7FFE /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		161510C6295036B300BA7FFE /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		1632479F29C1F78B00DD8FDD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1642F0F329388BC4005A54EF /* NotoSerifKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifKR-Regular.otf"; sourceTree = "<group>"; };
 		1642F0F429388BC5005A54EF /* NotoSerifKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifKR-Light.otf"; sourceTree = "<group>"; };
 		1642F0F529388BC5005A54EF /* NotoSerifKR-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifKR-SemiBold.otf"; sourceTree = "<group>"; };
@@ -123,7 +124,6 @@
 		16A60C1729B044DC00116569 /* FriendSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSettingView.swift; sourceTree = "<group>"; };
 		16A60C1929B0463400116569 /* FriendRequestCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestCheckView.swift; sourceTree = "<group>"; };
 		16A60C1B29B04AFF00116569 /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
-		16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		16CA72942939BDE200D451F0 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		16CFFE0529363BE900DC0B55 /* CalendarSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelectView.swift; sourceTree = "<group>"; };
 		16CFFE0729363CEF00DC0B55 /* InviteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendView.swift; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		161510BC29502BD100BA7FFE /* NewGilgaon */ = {
 			isa = PBXGroup;
 			children = (
-				16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */,
+				1632479F29C1F78B00DD8FDD /* GoogleService-Info.plist */,
 				161510BD29502BE600BA7FFE /* RegisterView.swift */,
 				161510C6295036B300BA7FFE /* RegisterModel.swift */,
 				C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */,
@@ -508,7 +508,7 @@
 			files = (
 				635AE38C2935E934008A8452 /* Preview Assets.xcassets in Resources */,
 				1642F0FD29388BC6005A54EF /* NotoSerifKR-Medium.otf in Resources */,
-				16AA0B8629C1E52C002FB416 /* GoogleService-Info.plist in Resources */,
+				163247A029C1F78B00DD8FDD /* GoogleService-Info.plist in Resources */,
 				1642F0FC29388BC6005A54EF /* NotoSerifKR-SemiBold.otf in Resources */,
 				1642F0FF29388BC6005A54EF /* NotoSerifKR-Bold.otf in Resources */,
 				16CA72952939BDE200D451F0 /* AppIcon.appiconset in Resources */,

@@ -13,7 +13,7 @@ struct TestAPIView: View {
     var searchNetwork: SearchNetwork = SearchNetwork()
     @EnvironmentObject var viewModel: SearchViewModel
     @ObservedObject var jogakData: JogakData = JogakData()
-    @EnvironmentObject private var vm: LocationsViewModel
+//    @EnvironmentObject private var vm: LocationsViewModel
     @State private var searchText: String = ""
     @Binding var lonString: String
     @Binding var lanString: String
@@ -74,7 +74,7 @@ struct TestAPIView: View {
 //                                    link: "dfsdfsdf"))
 //                            jogakData.datum.append(datum)
                             dismiss()
-                            vm.doSomeThing()
+//                            vm.doSomeThing()
                         } label: {
                             Text("\(datum.name)")
                                 .font(.custom("NotoSerifKR-SemiBold", size: 15))

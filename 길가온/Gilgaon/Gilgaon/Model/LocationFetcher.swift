@@ -26,8 +26,10 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate,ObservableObject {
         manager.requestWhenInUseAuthorization()
         Task {
             if CLLocationManager.locationServicesEnabled() {
-                manager.startUpdatingLocation()
-                manager.delegate = self
+                DispatchQueue.main.async {
+                    self.manager.startUpdatingLocation()
+                }
+//                manager.delegate = self
             } else {
                 print("[Fail] 위치 서비스 off 상태 ")
             }
@@ -45,6 +47,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate,ObservableObject {
         
         if let recentLocation = self.recentLocation {
             print(" ##Count:\(points.count)")
+            print("\(recentLocation.latitude)")
             //현재위치의 좌표 (START)
             let startPoint = CLLocationCoordinate2DMake(recentLocation.latitude, recentLocation.longitude)
             points.append(startPoint)
