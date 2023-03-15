@@ -9,7 +9,8 @@ import SwiftUI
 
 struct OnboardingTabView: View {
     @Binding var isFirstLaunching: Bool
-    let locationFetcher = LocationFetcher()
+//    let locationFetcher = LocationFetcher()
+    @EnvironmentObject var locationFetcher: LocationFetcher
     
     // timer count
     @State var count: Int = 1
@@ -55,8 +56,10 @@ struct OnboardingTabView: View {
             VStack {
                 Spacer()
                 Button {
-                    self.locationFetcher.start()
-                    sleep(3)
+                    Task {
+                        await self.locationFetcher.setLocationManager()
+                    }
+//                    sleep(3)
                     isFirstLaunching = false
                 } label: {
                     Text("시작하기")

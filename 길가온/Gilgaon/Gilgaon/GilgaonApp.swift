@@ -24,7 +24,7 @@ struct GilgaonApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 //    @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
-    
+    @StateObject var locationFetcher = LocationFetcher()
     var body: some Scene {
         WindowGroup {
             SplashView()
@@ -33,6 +33,7 @@ struct GilgaonApp: App {
                 .environmentObject(SearchViewModel())
                 .environmentObject(CalendarViewModel())
                 .environmentObject(FireStoreViewModel())
+                .environmentObject(locationFetcher)
         }
     }
 }
