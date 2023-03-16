@@ -26,14 +26,31 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate,ObservableObject {
         manager.requestWhenInUseAuthorization()
         Task {
             if CLLocationManager.locationServicesEnabled() {
-                DispatchQueue.main.async {
-                    self.manager.startUpdatingLocation()
+                switch manager.authorizationStatus {
+                case .authorizedAlways, .authorizedWhenInUse:
+                    print("사용자가 위치 사용하겠다고 알림")
+                    DispatchQueue.main.async {
+                        self.manager.startUpdatingLocation()
+                    }
+                case .notDetermined:
+                    //처음 상태는 notDetermined
+                    print("notDetermined")
+                case .restricted:
+                    print("restricted")
+                case .denied:
+                    await MainActor.run {
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                    }
                 }
 //                manager.delegate = self
             } else {
                 print("[Fail] 위치 서비스 off 상태 ")
             }
         }
+    }
+    
+    func setup() {
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
