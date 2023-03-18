@@ -25,17 +25,14 @@ struct CalendarSelectView: View {
                                 Rectangle()
                                     .frame(height: 1)
                                 
-                                Circle()
-                                    .frame(width: 15, height: 15)
-                                    .background(
-                                        Circle()
-                                            .stroke(lineWidth: 1)
-                                            .padding(-3)
-                                    )
+                               Image("flowerPink")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
                                 
                                 Rectangle()
                                     .frame(height: 1)
                             }
+                            .foregroundColor(.clear)
                             
                             VStack {
                                 Text(item.createdDate)

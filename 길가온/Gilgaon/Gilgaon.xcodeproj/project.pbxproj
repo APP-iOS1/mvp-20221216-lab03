@@ -26,7 +26,6 @@
 		16A60C1829B044DC00116569 /* FriendSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1729B044DC00116569 /* FriendSettingView.swift */; };
 		16A60C1A29B0463400116569 /* FriendRequestCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1929B0463400116569 /* FriendRequestCheckView.swift */; };
 		16A60C1C29B04AFF00116569 /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1B29B04AFF00116569 /* FriendViewModel.swift */; };
-		16AA0B8629C1E52C002FB416 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */; };
 		16CA72952939BDE200D451F0 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 16CA72942939BDE200D451F0 /* AppIcon.appiconset */; };
 		16CFFE0629363BEA00DC0B55 /* CalendarSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFFE0529363BE900DC0B55 /* CalendarSelectView.swift */; };
 		16CFFE0829363CEF00DC0B55 /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFFE0729363CEF00DC0B55 /* InviteFriendView.swift */; };
@@ -72,6 +71,7 @@
 		634BC642295039D10044B38B /* DrawerScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC641295039D10044B38B /* DrawerScheduleView.swift */; };
 		634BC64429503C000044B38B /* DrawerSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC64329503C000044B38B /* DrawerSettingView.swift */; };
 		634BC646295043110044B38B /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC645295043110044B38B /* FriendsView.swift */; };
+		6352D9B729C5498E00928BAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6352D9B629C5498E00928BAE /* GoogleService-Info.plist */; };
 		635AE3852935E932008A8452 /* GilgaonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635AE3842935E932008A8452 /* GilgaonApp.swift */; };
 		635AE3892935E934008A8452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 635AE3882935E934008A8452 /* Assets.xcassets */; };
 		635AE38C2935E934008A8452 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 635AE38B2935E934008A8452 /* Preview Assets.xcassets */; };
@@ -123,7 +123,6 @@
 		16A60C1729B044DC00116569 /* FriendSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSettingView.swift; sourceTree = "<group>"; };
 		16A60C1929B0463400116569 /* FriendRequestCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestCheckView.swift; sourceTree = "<group>"; };
 		16A60C1B29B04AFF00116569 /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
-		16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		16CA72942939BDE200D451F0 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		16CFFE0529363BE900DC0B55 /* CalendarSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelectView.swift; sourceTree = "<group>"; };
 		16CFFE0729363CEF00DC0B55 /* InviteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendView.swift; sourceTree = "<group>"; };
@@ -166,6 +165,7 @@
 		634BC641295039D10044B38B /* DrawerScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerScheduleView.swift; sourceTree = "<group>"; };
 		634BC64329503C000044B38B /* DrawerSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerSettingView.swift; sourceTree = "<group>"; };
 		634BC645295043110044B38B /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		6352D9B629C5498E00928BAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		635AE3812935E932008A8452 /* Gilgaon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gilgaon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		635AE3842935E932008A8452 /* GilgaonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GilgaonApp.swift; sourceTree = "<group>"; };
 		635AE3882935E934008A8452 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -223,7 +223,6 @@
 		161510BC29502BD100BA7FFE /* NewGilgaon */ = {
 			isa = PBXGroup;
 			children = (
-				16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */,
 				161510BD29502BE600BA7FFE /* RegisterView.swift */,
 				161510C6295036B300BA7FFE /* RegisterModel.swift */,
 				C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */,
@@ -342,6 +341,7 @@
 				1642F0EC2938897E005A54EF /* Font */,
 				C0FA4348293623F4002D4473 /* Gilgaon.entitlements */,
 				6FF334CA2935F1D9007438B1 /* Info.plist */,
+				6352D9B629C5498E00928BAE /* GoogleService-Info.plist */,
 				635AE3842935E932008A8452 /* GilgaonApp.swift */,
 				3663C66D2938631E006880C9 /* MapVIew */,
 				635AE3A729361971008A8452 /* View */,
@@ -508,7 +508,7 @@
 			files = (
 				635AE38C2935E934008A8452 /* Preview Assets.xcassets in Resources */,
 				1642F0FD29388BC6005A54EF /* NotoSerifKR-Medium.otf in Resources */,
-				16AA0B8629C1E52C002FB416 /* GoogleService-Info.plist in Resources */,
+				6352D9B729C5498E00928BAE /* GoogleService-Info.plist in Resources */,
 				1642F0FC29388BC6005A54EF /* NotoSerifKR-SemiBold.otf in Resources */,
 				1642F0FF29388BC6005A54EF /* NotoSerifKR-Bold.otf in Resources */,
 				16CA72952939BDE200D451F0 /* AppIcon.appiconset in Resources */,
