@@ -35,17 +35,17 @@ struct CalendarSelectView: View {
                             .foregroundColor(.clear)
                             
                             VStack {
-                                Text(item.createdDate)
+                                Text(item.calendarDate)
                                 Text(item.locationName)
                             }
                             .padding()
+                            .frame(minWidth: 180)
                             .overlay {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color("Pink"), lineWidth: 1.5)
                             }
                         }
                     }
-                    .foregroundColor(Color("DarkGray"))
                     .font(.custom("NotoSerifKR-Regular", size: 18))
                 }
                 .padding()

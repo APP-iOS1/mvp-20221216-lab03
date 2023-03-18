@@ -25,5 +25,8 @@ final class CalendarViewModel: ObservableObject {
     func fetchMap() async {
         self.mapDataList = await fireStore.fetchMarkers(inputID: self.mapID).sorted(by: { $1.createdDate > $0.createdDate})
     }
+    
+    
+    
 }
 
