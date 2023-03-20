@@ -22,6 +22,7 @@ class FireStoreViewModel: ObservableObject {
     @Published var myFriendArray: [FriendModel] = []
     @Published var calendarList:[DayCalendarModel] = []
     @Published var sharedFriend: [FriendModel] = []
+    @Published var calendarDetailList: [DayCalendarModel] = []
     //[마커ㅎ
     @Published var sharedFriendList:[FriendModel] = []
     @Published var isRecording: Bool = false
@@ -215,7 +216,7 @@ class FireStoreViewModel: ObservableObject {
             }
     }
     
-
+    
     // id를 가지고 유저를 조회해 사진 url 가져오는 함수
     @MainActor
     func getImageURL(userId: [String]) async -> [FriendModel] {
@@ -246,6 +247,7 @@ class FireStoreViewModel: ObservableObject {
             return []
         }
     }
+    
     func searchUser() {
         print(#function)
         $searchText
@@ -258,11 +260,9 @@ class FireStoreViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
-            
+        
     }
     
-    
-
     func persisImageToStorage(user:FireStoreModel, userImage: UIImage) async -> Void {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         print("uid성공!")
@@ -273,7 +273,7 @@ class FireStoreViewModel: ObservableObject {
             let downloadUrl = try await ref.downloadURL()
             self.addUser(user: user,photoId: downloadUrl.absoluteString)
         }catch{
-           print("imageUpload Fail!")
+            print("imageUpload Fail!")
         }
     }
     
@@ -289,7 +289,6 @@ class FireStoreViewModel: ObservableObject {
                      ])
     }
     
-    
     // MARK: - 회원가입 메서드
     /// 회원가입시, 유저의 프로필을 파이어스토어 User컬렉션에 등록하는 메서드.
     func uploadImageToStorage(userImage: UIImage?, user: FireStoreModel) async -> Void {
@@ -303,7 +302,7 @@ class FireStoreViewModel: ObservableObject {
             let downloadUrl = try await ref.downloadURL()
             self.addUserInfo(user: user, downloadUrl: downloadUrl.absoluteString)
         }catch{
-           print("imageUpload Fail!")
+            print("imageUpload Fail!")
         }
     }
     
@@ -329,6 +328,7 @@ class FireStoreViewModel: ObservableObject {
     
     //[서랍 data불러오기]
     func fetchDayCalendar(){
+        print(#function)
         database
             .collection("User")
             .document(self.currentUserId!)
@@ -345,13 +345,44 @@ class FireStoreViewModel: ObservableObject {
                         let shareFriend = docData["shareFriend"] as? [String] ?? []
                         let taskDate = docData["taskDate"] as? Date ?? Date()
                         let realDate = docData["realDate"] as? Double ?? 0.0
-//                        print("realDate: \(realDate)")
+                        //                        print("realDate: \(realDate)")
                         let calendarData = DayCalendarModel(id: id, taskDate: taskDate, title: title, shareFriend: shareFriend, realDate: realDate)
-                        print(#function)
                         self.calendarList.append(calendarData)
                     }
                 }
             }
+    }
+    
+    // id로 서랍데이터 가져오기
+    func fetchCarendalData(inputID: String) async -> [DayCalendarModel] {
+        print(#function)
+        var calendarArr: [DayCalendarModel] = []
+        
+        calendarArr.removeAll()
+        
+        do {
+            let snapshot = try await database.collection("User").document(self.currentUserId!).collection("Calendar").getDocuments()
+            for doccmnet in snapshot.documents {
+                let id = doccmnet.documentID
+                let docData = doccmnet.data()
+                let createdAt = docData["createdAt"] as? Double ?? 0
+                let title = docData["title"] as? String ?? ""
+                let shareFriend = docData["shareFriend"] as? [String] ?? []
+                let taskDate = docData["taskDate"] as? Date ?? Date()
+                let realDate = docData["realDate"] as? Double ?? 0.0
+                
+                let calendar: DayCalendarModel = DayCalendarModel(id: id, taskDate: taskDate, title: title, shareFriend: shareFriend, realDate: realDate)
+                
+                if calendar.id == inputID {
+                    calendarArr.append(calendar)
+                }
+            }
+            print("========= return \(calendarArr)")
+            return calendarArr
+        } catch {
+            print("error")
+            return []
+        }
     }
     
     // [마커 생성하기]
@@ -374,7 +405,7 @@ class FireStoreViewModel: ObservableObject {
                 "lon": marker.lon,
                 "sharedFriend": marker.shareFriend
             ])
-//        fetchMarkers(inputID: self.nowCalendarId)
+        //        fetchMarkers(inputID: self.nowCalendarId)
     }
     
     
