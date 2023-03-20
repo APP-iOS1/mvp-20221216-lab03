@@ -10,7 +10,7 @@ import MapKit
 struct TestAPIView: View {
     
     @Environment(\.dismiss) private var dismiss
-    var searchNetwork: SearchNetwork = SearchNetwork()
+    @StateObject var searchNetwork: SearchNetwork = SearchNetwork()
     @EnvironmentObject var viewModel: SearchViewModel
     @ObservedObject var jogakData: JogakData = JogakData()
     @EnvironmentObject private var vm: LocationsViewModel
@@ -42,26 +42,32 @@ struct TestAPIView: View {
 
     
     
-    var filterData: [Poi] {
-        Task {
-            viewModel.center = try await searchNetwork.loadJson(searchTerm: searchText)
-        }
-            return viewModel.center!.searchPoiInfo.pois.poi.filter {$0.name.localizedStandardContains(searchText)}
-
-
-    }
+//    var filterData: [Poi] {
+//        Task {
+//            viewModel.center = try await searchNetwork.loadJson(searchTerm: searchText)
+//        }
+//            return viewModel.center!.searchPoiInfo.pois.poi.filter {$0.name.localizedStandardContains(searchText)}
+//
+//
+//    }
 
     
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.center?.searchPoiInfo.pois.poi.count ?? 0 > 0 {
-                    List(filterData,id:\.self) { datum in
+//                if viewModel.center?.searchPoiInfo.pois.poi.count ?? 0 > 0 {
+                HStack {
+                    TextField("장소 검색", text: $searchNetwork.searchText)
+                    Button("검색") {
+                        searchNetwork.searchResult()
+                    }
+                }
+                    List(searchNetwork.searchResultArray ,id:\.self) { datum in
 //                        Text("\(datum.name)")
                         Button {
-                            locationName = datum.name
-                            lonString = datum.frontLon
-                            lanString = datum.frontLat
+                            locationName = datum.name //목적지의 이름
+                            lonString = datum.frontLon //목적지의 이름
+                            lanString = datum.frontLat // 목적지의 경도
                             
                             
 //                            LocationsDataService.locations.append(
@@ -81,27 +87,33 @@ struct TestAPIView: View {
                         }
 
 
-                    }.searchable(
-                        text: $searchText,
-                        placement: .navigationBarDrawer,
-                        prompt: "장소 검색"
-                    )
+//                    }
+//                    .searchable(
+//                        text: $searchText,
+//                        placement: .navigationBarDrawer,
+//                        prompt: "장소 검색"
+//                    )
                 }
             }
         }
         .onAppear {
-            Task {viewModel.center = try await searchNetwork.loadJson(searchTerm: "초지역")
-            }
-//            print(viewModel.center?.searchPoiInfo.pois.poi.count)
-            
-            
+            searchNetwork.searchResult()
         }
+//        .onAppear {
+//            Task {viewModel.center = try await searchNetwork.loadJson(searchTerm: "초지역")
+//            }
+////            print(viewModel.center?.searchPoiInfo.pois.poi.count)
+//
+//
+//        }
     }
 
 }
 
-//struct TestAPIView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TestAPIView()
-//    }
-//}
+struct TestAPIView_Previews: PreviewProvider {
+    static var previews: some View {
+        TestAPIView(lonString: .constant(""), lanString: .constant(""), locationName: .constant(""))
+            .environmentObject(SearchViewModel())
+            .environmentObject(LocationsViewModel())
+    }
+}
