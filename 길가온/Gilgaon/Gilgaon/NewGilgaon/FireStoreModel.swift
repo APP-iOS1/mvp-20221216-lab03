@@ -82,6 +82,14 @@ struct FriendModel: Codable,Identifiable,Hashable {
     var userEmail: String
 }
 
-
+struct GuestBookModel: Codable,Identifiable,Hashable {
+    var id: String // Document ID
+    // GuestBook 값들
+    var to: String // 받는 사람
+    var from: String // 보내는 사람
+    var board: String // 방명록 내용
+    var date: Double // 작성 날짜
+    var report: Bool // 신고 상태
+}
 
 
