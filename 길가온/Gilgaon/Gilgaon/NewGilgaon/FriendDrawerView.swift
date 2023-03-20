@@ -130,7 +130,7 @@ struct FriendDrawerView: View {
                         
                         switch friendMiddleView {
                         case .comment:
-                            FriendDrawerCommentView()
+                            FriendGuestBookView()
                         case .list:
                             FriendDrawerListView(friendID: friendID)
                         }

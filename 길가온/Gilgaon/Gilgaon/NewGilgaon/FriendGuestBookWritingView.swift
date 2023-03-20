@@ -1,13 +1,12 @@
 //
-//  GuestBookWritingView.swift
+//  FriendGuestBookWritingView.swift
 //  Gilgaon
 //
-//  Created by 정소희 on 2023/03/13.
+//  Created by 전준수 on 2023/03/21.
 //
 
 import SwiftUI
-
-struct GuestBookWritingView: View {
+struct FriendGuestBookWritingView: View {
     
     @Binding var guestBookFullScreenToggle: Bool
     @State private var cancelToggle: Bool = false //취소버튼
@@ -52,12 +51,7 @@ struct GuestBookWritingView: View {
                         Text("방명록을 작성해주세요!")
                             .padding(-10)
                             .font(.custom("NotoSerifKR-Regular",size: 15))
-//                        TextField("방명록을 작성해주세요!", text: $guestBookTextField, axis: .vertical)
-//                            .padding()
-//                            .background(Color.white)
-//                            .cornerRadius(15)
-//                            .padding()
-//                            .focused($focusField, equals: .guestBook)
+
                             TextEditor(text: $guestBookTextField)
                                 .cornerRadius(15)
                                 .padding()
@@ -73,7 +67,7 @@ struct GuestBookWritingView: View {
         }
     }
 }
-extension GuestBookWritingView {
+extension FriendGuestBookWritingView {
     
     private var cancelButton: some View {
         Button(action: {
@@ -109,8 +103,8 @@ extension View {
     }
 }
 
-struct GuestBookWritingView_Previews: PreviewProvider {
+struct FriendGuestBookWritingView_Previews: PreviewProvider {
     static var previews: some View {
-        GuestBookWritingView(guestBookFullScreenToggle: .constant(true))
+        FriendGuestBookWritingView(guestBookFullScreenToggle: .constant(true))
     }
 }

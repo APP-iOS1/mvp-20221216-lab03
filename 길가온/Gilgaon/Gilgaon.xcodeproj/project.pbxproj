@@ -65,7 +65,6 @@
 		36A0C2802954423700DFDD45 /* OnboardingMapDescribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0C27F2954423700DFDD45 /* OnboardingMapDescribeView.swift */; };
 		36BB028B29518BD300CF2816 /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB028A29518BD300CF2816 /* WritingView.swift */; };
 		4C7CB7FE29BEBAAE00B69EC9 /* GuestBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */; };
-		4C7CB80029BF053B00B69EC9 /* GuestBookWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CB7FF29BF053B00B69EC9 /* GuestBookWritingView.swift */; };
 		634BC63E2950369D0044B38B /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC63D2950369D0044B38B /* DrawerView.swift */; };
 		634BC6402950398C0044B38B /* DrawerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC63F2950398C0044B38B /* DrawerListView.swift */; };
 		634BC642295039D10044B38B /* DrawerScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC641295039D10044B38B /* DrawerScheduleView.swift */; };
@@ -102,9 +101,8 @@
 		C068E0BC29BE47770070D71A /* FriendDrawerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */; };
 		C068E0BE29BE5B470070D71A /* FriendFlowerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0BD29BE5B470070D71A /* FriendFlowerMapView.swift */; };
 		C068E0C829C8087E0070D71A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C068E0C729C8087E0070D71A /* GoogleService-Info.plist */; };
-		C068E0CA29C808B90070D71A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C068E0C929C808B90070D71A /* GoogleService-Info.plist */; };
 		C068E0CC29C808D10070D71A /* FriendGuestBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0CB29C808D10070D71A /* FriendGuestBookView.swift */; };
-		C068E0CE29C808EB0070D71A /* FriendGuestBookWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0CD29C808EB0070D71A /* FriendGuestBookWritingView.swift */; };
+		C068E0D229C8B0420070D71A /* FriendGuestBookWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0D129C8B0420070D71A /* FriendGuestBookWritingView.swift */; };
 		C0B7045B29388F1200245ED7 /* Sakura.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B7045A29388F1200245ED7 /* Sakura.json */; };
 		C0C44ACB2950AAA8006FE8A4 /* PleaseLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */; };
 /* End PBXBuildFile section */
@@ -162,7 +160,6 @@
 		36A0C27F2954423700DFDD45 /* OnboardingMapDescribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMapDescribeView.swift; sourceTree = "<group>"; };
 		36BB028A29518BD300CF2816 /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
 		4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookView.swift; sourceTree = "<group>"; };
-		4C7CB7FF29BF053B00B69EC9 /* GuestBookWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookWritingView.swift; sourceTree = "<group>"; };
 		634BC63D2950369D0044B38B /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
 		634BC63F2950398C0044B38B /* DrawerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerListView.swift; sourceTree = "<group>"; };
 		634BC641295039D10044B38B /* DrawerScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerScheduleView.swift; sourceTree = "<group>"; };
@@ -196,9 +193,8 @@
 		C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDrawerListView.swift; sourceTree = "<group>"; };
 		C068E0BD29BE5B470070D71A /* FriendFlowerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFlowerMapView.swift; sourceTree = "<group>"; };
 		C068E0C729C8087E0070D71A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info/길가온/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C068E0C929C808B90070D71A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C068E0CB29C808D10070D71A /* FriendGuestBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendGuestBookView.swift; sourceTree = "<group>"; };
-		C068E0CD29C808EB0070D71A /* FriendGuestBookWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendGuestBookWritingView.swift; path = "../../../../../../.Trash/mvp-20221216-lab03 오후 12.19.41/길가온/Gilgaon/Gilgaon/NewGilgaon/FriendGuestBookWritingView.swift"; sourceTree = "<group>"; };
+		C068E0D129C8B0420070D71A /* FriendGuestBookWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendGuestBookWritingView.swift; sourceTree = "<group>"; };
 		C0B7045A29388F1200245ED7 /* Sakura.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sakura.json; sourceTree = "<group>"; };
 		C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseLoginView.swift; sourceTree = "<group>"; };
 		C0FA4348293623F4002D4473 /* Gilgaon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gilgaon.entitlements; sourceTree = "<group>"; };
@@ -229,7 +225,6 @@
 		161510BC29502BD100BA7FFE /* NewGilgaon */ = {
 			isa = PBXGroup;
 			children = (
-				C068E0C929C808B90070D71A /* GoogleService-Info.plist */,
 				161510BD29502BE600BA7FFE /* RegisterView.swift */,
 				161510C6295036B300BA7FFE /* RegisterModel.swift */,
 				C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */,
@@ -243,7 +238,7 @@
 				16EE2F632951504600414279 /* FireStoreModel.swift */,
 				C068E0AD29BE04770070D71A /* FriendDrawerView.swift */,
 				C068E0CB29C808D10070D71A /* FriendGuestBookView.swift */,
-				C068E0CD29C808EB0070D71A /* FriendGuestBookWritingView.swift */,
+				C068E0D129C8B0420070D71A /* FriendGuestBookWritingView.swift */,
 				C068E0B929BE476F0070D71A /* FriendDrawerCommentView.swift */,
 				C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */,
 				C068E0B129BE1B720070D71A /* FriendFriendView.swift */,
@@ -261,7 +256,6 @@
 				3651BB8A29B9D70A0083F401 /* CustomSheetModifier.swift */,
 				3651BB8C29B9DAD10083F401 /* CustomSheetView.swift */,
 				4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */,
-				4C7CB7FF29BF053B00B69EC9 /* GuestBookWritingView.swift */,
 			);
 			path = NewGilgaon;
 			sourceTree = "<group>";
@@ -524,7 +518,6 @@
 				1642F0FA29388BC6005A54EF /* NotoSerifKR-Regular.otf in Resources */,
 				C0B7045B29388F1200245ED7 /* Sakura.json in Resources */,
 				C068E0C829C8087E0070D71A /* GoogleService-Info.plist in Resources */,
-				C068E0CA29C808B90070D71A /* GoogleService-Info.plist in Resources */,
 				16FA82C6293903BC006129D3 /* InviteFriendLottie.json in Resources */,
 				1642F10029388BC6005A54EF /* NotoSerifKR-ExtraLight.otf in Resources */,
 				1642F0FB29388BC6005A54EF /* NotoSerifKR-Light.otf in Resources */,
@@ -554,7 +547,7 @@
 				16EE2F662951508D00414279 /* FireStoreViewModel.swift in Sources */,
 				635AE3A529360AE8008A8452 /* DateVaule.swift in Sources */,
 				3663C679293863C4006880C9 /* LocationsViewModel.swift in Sources */,
-				C068E0CE29C808EB0070D71A /* FriendGuestBookWritingView.swift in Sources */,
+				C068E0D229C8B0420070D71A /* FriendGuestBookWritingView.swift in Sources */,
 				16CFFE0829363CEF00DC0B55 /* InviteFriendView.swift in Sources */,
 				16EE2F642951504600414279 /* FireStoreModel.swift in Sources */,
 				C0C44ACB2950AAA8006FE8A4 /* PleaseLoginView.swift in Sources */,
@@ -600,7 +593,6 @@
 				16A60C1A29B0463400116569 /* FriendRequestCheckView.swift in Sources */,
 				16F69DB529387E030045CD91 /* OnboardingDescribeView.swift in Sources */,
 				3663C67B293863D4006880C9 /* LocationDataService.swift in Sources */,
-				4C7CB80029BF053B00B69EC9 /* GuestBookWritingView.swift in Sources */,
 				C068E0BE29BE5B470070D71A /* FriendFlowerMapView.swift in Sources */,
 				3663C67329386383006880C9 /* Location.swift in Sources */,
 				362A085129557CC500C582B4 /* AddMarkerFriendView.swift in Sources */,

@@ -108,27 +108,7 @@ struct GuestBookView: View {
                     }
                 }
             }
-            //방명록 작성하는 버튼
-            Button(action: {
-                print("방명록 글쓰기 버튼 누름")
-                guestBookFullScreenToggle = true
-            }) {
-                Circle()
-                    .fill(Color("Pink"))
-                    .frame(width: geometry.size.width/6.5, height: geometry.size.height/6.5)
-                    .opacity(0.8)
-                    .overlay {
-                        Image(systemName: "pencil")
-                            .resizable()
-                            .foregroundColor(Color.white)
-                            .frame(width: geometry.size.width/14.5, height: geometry.size.height/19.5)
-                    }
-                
-            }
-            .offset(x: geometry.size.width/1.22, y: geometry.size.height/1.21)
-            .fullScreenCover(isPresented: $guestBookFullScreenToggle) {
-                GuestBookWritingView(guestBookFullScreenToggle: $guestBookFullScreenToggle)
-            }
+
         }
     }
 }
