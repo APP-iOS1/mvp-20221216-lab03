@@ -18,6 +18,7 @@
 		1642F0FE29388BC6005A54EF /* NotoSerifKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1642F0F729388BC5005A54EF /* NotoSerifKR-Black.otf */; };
 		1642F0FF29388BC6005A54EF /* NotoSerifKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1642F0F829388BC6005A54EF /* NotoSerifKR-Bold.otf */; };
 		1642F10029388BC6005A54EF /* NotoSerifKR-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1642F0F929388BC6005A54EF /* NotoSerifKR-ExtraLight.otf */; };
+		167E653D29C8691500E555D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 167E653C29C8691500E555D1 /* GoogleService-Info.plist */; };
 		1683284329B6DCC800B3EF73 /* FlowerMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683284229B6DCC800B3EF73 /* FlowerMapViewModel.swift */; };
 		1683284529B6DD0E00B3EF73 /* DrawerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683284429B6DD0E00B3EF73 /* DrawerDetailView.swift */; };
 		1683284729B6DE6500B3EF73 /* UserMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683284629B6DE6500B3EF73 /* UserMapView.swift */; };
@@ -116,6 +117,7 @@
 		1642F0F729388BC5005A54EF /* NotoSerifKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifKR-Black.otf"; sourceTree = "<group>"; };
 		1642F0F829388BC6005A54EF /* NotoSerifKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifKR-Bold.otf"; sourceTree = "<group>"; };
 		1642F0F929388BC6005A54EF /* NotoSerifKR-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifKR-ExtraLight.otf"; sourceTree = "<group>"; };
+		167E653C29C8691500E555D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1683284229B6DCC800B3EF73 /* FlowerMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerMapViewModel.swift; sourceTree = "<group>"; };
 		1683284429B6DD0E00B3EF73 /* DrawerDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerDetailView.swift; sourceTree = "<group>"; };
 		1683284629B6DE6500B3EF73 /* UserMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapView.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */,
+				167E653C29C8691500E555D1 /* GoogleService-Info.plist */,
 				161510BD29502BE600BA7FFE /* RegisterView.swift */,
 				161510C6295036B300BA7FFE /* RegisterModel.swift */,
 				C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */,
@@ -515,6 +518,7 @@
 				6FF334C92935F1CD007438B1 /* Config.xcconfig in Resources */,
 				1642F0FA29388BC6005A54EF /* NotoSerifKR-Regular.otf in Resources */,
 				C0B7045B29388F1200245ED7 /* Sakura.json in Resources */,
+				167E653D29C8691500E555D1 /* GoogleService-Info.plist in Resources */,
 				16FA82C6293903BC006129D3 /* InviteFriendLottie.json in Resources */,
 				1642F10029388BC6005A54EF /* NotoSerifKR-ExtraLight.otf in Resources */,
 				1642F0FB29388BC6005A54EF /* NotoSerifKR-Light.otf in Resources */,

@@ -62,38 +62,32 @@ struct TestAPIView: View {
                         searchNetwork.searchResult()
                     }
                 }
+
                     List(searchNetwork.searchResultArray ,id:\.self) { datum in
-//                        Text("\(datum.name)")
-                        Button {
-                            locationName = datum.name //목적지의 이름
-                            lonString = datum.frontLon //목적지의 이름
-                            lanString = datum.frontLat // 목적지의 경도
-                            
-                            
-//                            LocationsDataService.locations.append(
-//                                Location(
-//                                    name: datum.name,
-//                                    cityName: "경기 안산시 단원구 원곡동 906",
-//                                    coordinate: CLLocationCoordinate2D(latitude: Double(datum.frontLat)!, longitude: Double(datum.frontLon)!),
-//                                    description: "...",
-//                                    imageNames: ["b00"],
-//                                    link: "dfsdfsdf"))
-//                            jogakData.datum.append(datum)
-                            dismiss()
-                            vm.doSomeThing()
-                        } label: {
-                            Text("\(datum.name)")
-                                .font(.custom("NotoSerifKR-SemiBold", size: 15))
-                        }
-
-
-//                    }
-//                    .searchable(
-//                        text: $searchText,
-//                        placement: .navigationBarDrawer,
-//                        prompt: "장소 검색"
-//                    )
-                }
+    //                        Text("\(datum.name)")
+                            Button {
+                                locationName = datum.name //목적지의 이름
+                                lonString = datum.frontLon //목적지의 이름
+                                lanString = datum.frontLat // 목적지의 경도
+                                
+                                
+    //                            LocationsDataService.locations.append(
+    //                                Location(
+    //                                    name: datum.name,
+    //                                    cityName: "경기 안산시 단원구 원곡동 906",
+    //                                    coordinate: CLLocationCoordinate2D(latitude: Double(datum.frontLat)!, longitude: Double(datum.frontLon)!),
+    //                                    description: "...",
+    //                                    imageNames: ["b00"],
+    //                                    link: "dfsdfsdf"))
+    //                            jogakData.datum.append(datum)
+                                dismiss()
+                                vm.doSomeThing()
+                            } label: {
+                                Text("\(datum.name)")
+                                    .font(.custom("NotoSerifKR-SemiBold", size: 15))
+                            }
+                    }
+                
             }
         }
         .onAppear {
