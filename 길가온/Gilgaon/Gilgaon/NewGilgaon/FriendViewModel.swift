@@ -19,10 +19,7 @@ class FriendViewModel: ObservableObject {
     @Published var friendCalendarList:[DayCalendarModel] = []
     @Published var friendCalendarListSharedFriend: [FriendModel] = []
     @Published var markerList: [MarkerModel] = []
-    @Published var friendGuestBook: GuestBookModel?
     @Published var friendGuestBookList:[GuestBookModel] = []
-    
-    var friendGuestBookId: String = ""
 
     
     let database = Firestore.firestore()
@@ -293,9 +290,6 @@ class FriendViewModel: ObservableObject {
                 "date": guestBook.date,
                 "report": guestBook.report
             ])
-        
-        self.friendGuestBookId = guestBook.id
-        print("friendGuestBookId: \(self.friendGuestBookId)")
         friendGuestBookList.append(guestBook)
     }
     

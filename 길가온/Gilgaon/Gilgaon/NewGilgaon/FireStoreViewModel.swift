@@ -34,6 +34,8 @@ class FireStoreViewModel: ObservableObject {
     var nowCalendarId: String = ""
     var currentUserId:String?{ Auth.auth().currentUser?.uid }
     
+    @Published var guestBookList:[GuestBookModel] = []
+    
     // [Image to Storage]
     func uploadImageToStorage(userImage: UIImage, photoId: String) {
         let ref = Storage.storage().reference(withPath: photoId)
@@ -410,4 +412,67 @@ class FireStoreViewModel: ObservableObject {
         
         
     }
+    
+    // 나의 방명록 삭제
+    func deleteGuestBook(guestBook: GuestBookModel) {
+        database
+            .collection("User")
+            .document(self.currentUserId!)
+            .collection("GuestBook")
+            .document(guestBook.id)
+            .delete()
+    }
+    
+    // 나의 방명록 불러오기
+    func fetchGuestBook() async{
+        database
+            .collection("User")
+            .document(self.currentUserId!)
+            .collection("GuestBook")
+            .order(by: "date", descending: true)
+            .getDocuments { (snapshot, error) in
+                self.guestBookList.removeAll()
+                if let snapshot{
+                    for document in snapshot.documents{
+                        let id = document.documentID
+                        let docData = document.data()
+                        let to = docData["to"] as? String ?? ""
+                        let from = docData["from"] as? String ?? ""
+                        let fromNickName = docData["fromNickName"] as? String ?? ""
+                        let fromPhoto = docData["fromPhoto"] as? String ?? ""
+                        let board = docData["board"] as? String ?? ""
+                        let date = docData["date"] as? Double ?? 0.0
+                        let report = docData["report"] as? Bool ?? false
+                        let guestBookData = GuestBookModel(id: id, to: to, from: from, fromNickName: fromNickName, fromPhoto: fromPhoto, board: board, date: date, report: report)
+                        print(#function)
+                        self.guestBookList.append(guestBookData)
+                    }
+                }
+            }
+    }
+    
+    // 나의 방명록 글 신고하기
+    func reportGuestBookON(guestBook: GuestBookModel) {
+        database
+            .collection("User")
+            .document(self.currentUserId!)
+            .collection("GuestBook")
+            .document(guestBook.id)
+            .updateData([
+                "report": true
+            ])
+    }
+    
+    // 나의 방명록 글 신고 취소하기
+    func ReportGuestBookOFF(guestBook: GuestBookModel) {
+        database
+            .collection("User")
+            .document(self.currentUserId!)
+            .collection("GuestBook")
+            .document(guestBook.id)
+            .updateData([
+                "report": false
+            ])
+    }
+    
 }
