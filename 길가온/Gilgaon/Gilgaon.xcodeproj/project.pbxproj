@@ -26,7 +26,6 @@
 		16A60C1829B044DC00116569 /* FriendSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1729B044DC00116569 /* FriendSettingView.swift */; };
 		16A60C1A29B0463400116569 /* FriendRequestCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1929B0463400116569 /* FriendRequestCheckView.swift */; };
 		16A60C1C29B04AFF00116569 /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1B29B04AFF00116569 /* FriendViewModel.swift */; };
-		16AA0B8629C1E52C002FB416 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */; };
 		16CA72952939BDE200D451F0 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 16CA72942939BDE200D451F0 /* AppIcon.appiconset */; };
 		16CFFE0629363BEA00DC0B55 /* CalendarSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFFE0529363BE900DC0B55 /* CalendarSelectView.swift */; };
 		16CFFE0829363CEF00DC0B55 /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFFE0729363CEF00DC0B55 /* InviteFriendView.swift */; };
@@ -102,6 +101,10 @@
 		C068E0BA29BE476F0070D71A /* FriendDrawerCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0B929BE476F0070D71A /* FriendDrawerCommentView.swift */; };
 		C068E0BC29BE47770070D71A /* FriendDrawerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */; };
 		C068E0BE29BE5B470070D71A /* FriendFlowerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0BD29BE5B470070D71A /* FriendFlowerMapView.swift */; };
+		C068E0C829C8087E0070D71A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C068E0C729C8087E0070D71A /* GoogleService-Info.plist */; };
+		C068E0CA29C808B90070D71A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C068E0C929C808B90070D71A /* GoogleService-Info.plist */; };
+		C068E0CC29C808D10070D71A /* FriendGuestBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0CB29C808D10070D71A /* FriendGuestBookView.swift */; };
+		C068E0CE29C808EB0070D71A /* FriendGuestBookWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0CD29C808EB0070D71A /* FriendGuestBookWritingView.swift */; };
 		C0B7045B29388F1200245ED7 /* Sakura.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B7045A29388F1200245ED7 /* Sakura.json */; };
 		C0C44ACB2950AAA8006FE8A4 /* PleaseLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */; };
 /* End PBXBuildFile section */
@@ -123,7 +126,6 @@
 		16A60C1729B044DC00116569 /* FriendSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSettingView.swift; sourceTree = "<group>"; };
 		16A60C1929B0463400116569 /* FriendRequestCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestCheckView.swift; sourceTree = "<group>"; };
 		16A60C1B29B04AFF00116569 /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
-		16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		16CA72942939BDE200D451F0 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		16CFFE0529363BE900DC0B55 /* CalendarSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelectView.swift; sourceTree = "<group>"; };
 		16CFFE0729363CEF00DC0B55 /* InviteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendView.swift; sourceTree = "<group>"; };
@@ -193,6 +195,10 @@
 		C068E0B929BE476F0070D71A /* FriendDrawerCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDrawerCommentView.swift; sourceTree = "<group>"; };
 		C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDrawerListView.swift; sourceTree = "<group>"; };
 		C068E0BD29BE5B470070D71A /* FriendFlowerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFlowerMapView.swift; sourceTree = "<group>"; };
+		C068E0C729C8087E0070D71A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info/길가온/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C068E0C929C808B90070D71A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C068E0CB29C808D10070D71A /* FriendGuestBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendGuestBookView.swift; sourceTree = "<group>"; };
+		C068E0CD29C808EB0070D71A /* FriendGuestBookWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendGuestBookWritingView.swift; path = "../../../../../../.Trash/mvp-20221216-lab03 오후 12.19.41/길가온/Gilgaon/Gilgaon/NewGilgaon/FriendGuestBookWritingView.swift"; sourceTree = "<group>"; };
 		C0B7045A29388F1200245ED7 /* Sakura.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sakura.json; sourceTree = "<group>"; };
 		C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseLoginView.swift; sourceTree = "<group>"; };
 		C0FA4348293623F4002D4473 /* Gilgaon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gilgaon.entitlements; sourceTree = "<group>"; };
@@ -223,7 +229,7 @@
 		161510BC29502BD100BA7FFE /* NewGilgaon */ = {
 			isa = PBXGroup;
 			children = (
-				16AA0B8529C1E52B002FB416 /* GoogleService-Info.plist */,
+				C068E0C929C808B90070D71A /* GoogleService-Info.plist */,
 				161510BD29502BE600BA7FFE /* RegisterView.swift */,
 				161510C6295036B300BA7FFE /* RegisterModel.swift */,
 				C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */,
@@ -236,6 +242,8 @@
 				16EE2F612951501700414279 /* AddFriendView.swift */,
 				16EE2F632951504600414279 /* FireStoreModel.swift */,
 				C068E0AD29BE04770070D71A /* FriendDrawerView.swift */,
+				C068E0CB29C808D10070D71A /* FriendGuestBookView.swift */,
+				C068E0CD29C808EB0070D71A /* FriendGuestBookWritingView.swift */,
 				C068E0B929BE476F0070D71A /* FriendDrawerCommentView.swift */,
 				C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */,
 				C068E0B129BE1B720070D71A /* FriendFriendView.swift */,
@@ -343,6 +351,7 @@
 				C0FA4348293623F4002D4473 /* Gilgaon.entitlements */,
 				6FF334CA2935F1D9007438B1 /* Info.plist */,
 				635AE3842935E932008A8452 /* GilgaonApp.swift */,
+				C068E0C729C8087E0070D71A /* GoogleService-Info.plist */,
 				3663C66D2938631E006880C9 /* MapVIew */,
 				635AE3A729361971008A8452 /* View */,
 				63D2C1242938371C0011BC89 /* ViewModel */,
@@ -508,13 +517,14 @@
 			files = (
 				635AE38C2935E934008A8452 /* Preview Assets.xcassets in Resources */,
 				1642F0FD29388BC6005A54EF /* NotoSerifKR-Medium.otf in Resources */,
-				16AA0B8629C1E52C002FB416 /* GoogleService-Info.plist in Resources */,
 				1642F0FC29388BC6005A54EF /* NotoSerifKR-SemiBold.otf in Resources */,
 				1642F0FF29388BC6005A54EF /* NotoSerifKR-Bold.otf in Resources */,
 				16CA72952939BDE200D451F0 /* AppIcon.appiconset in Resources */,
 				6FF334C92935F1CD007438B1 /* Config.xcconfig in Resources */,
 				1642F0FA29388BC6005A54EF /* NotoSerifKR-Regular.otf in Resources */,
 				C0B7045B29388F1200245ED7 /* Sakura.json in Resources */,
+				C068E0C829C8087E0070D71A /* GoogleService-Info.plist in Resources */,
+				C068E0CA29C808B90070D71A /* GoogleService-Info.plist in Resources */,
 				16FA82C6293903BC006129D3 /* InviteFriendLottie.json in Resources */,
 				1642F10029388BC6005A54EF /* NotoSerifKR-ExtraLight.otf in Resources */,
 				1642F0FB29388BC6005A54EF /* NotoSerifKR-Light.otf in Resources */,
@@ -544,6 +554,7 @@
 				16EE2F662951508D00414279 /* FireStoreViewModel.swift in Sources */,
 				635AE3A529360AE8008A8452 /* DateVaule.swift in Sources */,
 				3663C679293863C4006880C9 /* LocationsViewModel.swift in Sources */,
+				C068E0CE29C808EB0070D71A /* FriendGuestBookWritingView.swift in Sources */,
 				16CFFE0829363CEF00DC0B55 /* InviteFriendView.swift in Sources */,
 				16EE2F642951504600414279 /* FireStoreModel.swift in Sources */,
 				C0C44ACB2950AAA8006FE8A4 /* PleaseLoginView.swift in Sources */,
@@ -557,6 +568,7 @@
 				16A60C1629B0448600116569 /* SegmentControllView.swift in Sources */,
 				16CFFE0629363BEA00DC0B55 /* CalendarSelectView.swift in Sources */,
 				639D9A5429BA115A009D6EAA /* CalendarViewModel.swift in Sources */,
+				C068E0CC29C808D10070D71A /* FriendGuestBookView.swift in Sources */,
 				635AE3952935E9DC008A8452 /* LoginView.swift in Sources */,
 				16F69DA7293845E80045CD91 /* LottieView.swift in Sources */,
 				3651BB8929B9AB620083F401 /* FlowerRecordView.swift in Sources */,
