@@ -97,7 +97,6 @@
 		6FF334C92935F1CD007438B1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6FF334C82935F1CC007438B1 /* Config.xcconfig */; };
 		C068E0AE29BE04770070D71A /* FriendDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0AD29BE04770070D71A /* FriendDrawerView.swift */; };
 		C068E0B229BE1B720070D71A /* FriendFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0B129BE1B720070D71A /* FriendFriendView.swift */; };
-		C068E0BA29BE476F0070D71A /* FriendDrawerCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0B929BE476F0070D71A /* FriendDrawerCommentView.swift */; };
 		C068E0BC29BE47770070D71A /* FriendDrawerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */; };
 		C068E0BE29BE5B470070D71A /* FriendFlowerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0BD29BE5B470070D71A /* FriendFlowerMapView.swift */; };
 		C068E0C829C8087E0070D71A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C068E0C729C8087E0070D71A /* GoogleService-Info.plist */; };
@@ -189,7 +188,6 @@
 		6FF334CA2935F1D9007438B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C068E0AD29BE04770070D71A /* FriendDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDrawerView.swift; sourceTree = "<group>"; };
 		C068E0B129BE1B720070D71A /* FriendFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFriendView.swift; sourceTree = "<group>"; };
-		C068E0B929BE476F0070D71A /* FriendDrawerCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDrawerCommentView.swift; sourceTree = "<group>"; };
 		C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDrawerListView.swift; sourceTree = "<group>"; };
 		C068E0BD29BE5B470070D71A /* FriendFlowerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFlowerMapView.swift; sourceTree = "<group>"; };
 		C068E0C729C8087E0070D71A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info/길가온/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 				C068E0AD29BE04770070D71A /* FriendDrawerView.swift */,
 				C068E0CB29C808D10070D71A /* FriendGuestBookView.swift */,
 				C068E0D129C8B0420070D71A /* FriendGuestBookWritingView.swift */,
-				C068E0B929BE476F0070D71A /* FriendDrawerCommentView.swift */,
 				C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */,
 				C068E0B129BE1B720070D71A /* FriendFriendView.swift */,
 				16EE2F652951508D00414279 /* FireStoreViewModel.swift */,
@@ -572,7 +569,6 @@
 				635AE39B2935E9F0008A8452 /* RecordView.swift in Sources */,
 				63D2C1282938379C0011BC89 /* TaskViewModel.swift in Sources */,
 				63660F4E2937216F00B70272 /* ImagePicker.swift in Sources */,
-				C068E0BA29BE476F0070D71A /* FriendDrawerCommentView.swift in Sources */,
 				1683284729B6DE6500B3EF73 /* UserMapView.swift in Sources */,
 				63D2C123293836CD0011BC89 /* DayTask.swift in Sources */,
 				16F69DB629387E030045CD91 /* OnboardingTabView.swift in Sources */,
