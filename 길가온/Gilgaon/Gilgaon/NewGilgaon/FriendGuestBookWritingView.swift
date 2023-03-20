@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 struct FriendGuestBookWritingView: View {
     
     @Binding var guestBookFullScreenToggle: Bool
@@ -14,6 +15,9 @@ struct FriendGuestBookWritingView: View {
     @State private var showingAlert = false
     @State private var guestBookTextField: String = ""
     @State private var emptyTextField: String = "방명록을 작성해주세요!"
+    @State var friendID: String
+    @StateObject private var friendViewModel = FriendViewModel()
+    @EnvironmentObject var fireStoreViewModel: FireStoreViewModel
     
     var body: some View {
         GeometryReader { geometry in
@@ -87,6 +91,13 @@ extension FriendGuestBookWritingView {
             alertType = .registration //등록
             cancelToggle = false
             showingAlert = true
+            
+            let createdAt = Date().timeIntervalSince1970
+            let friendGuestBookList = friendViewModel.friendGuestBookList
+            let friendGuestBook = GuestBookModel(id: UUID().uuidString, to: friendID, from: Auth.auth().currentUser?.uid ?? "",fromNickName: fireStoreViewModel.userNickName,fromPhoto: fireStoreViewModel.profileUrlString ?? "", board: guestBookTextField, date: createdAt, report: false
+            )
+            
+            friendViewModel.addFriendGuestBook(guestBook: friendGuestBook, friendID: friendID)
         }) {
             Capsule()
                 .fill(Color("Pink").opacity(0.85))
@@ -103,8 +114,8 @@ extension View {
     }
 }
 
-struct FriendGuestBookWritingView_Previews: PreviewProvider {
-    static var previews: some View {
-        FriendGuestBookWritingView(guestBookFullScreenToggle: .constant(true))
-    }
-}
+//struct FriendGuestBookWritingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FriendGuestBookWritingView(guestBookFullScreenToggle: .constant(true))
+//    }
+//}
