@@ -10,24 +10,30 @@ import Combine
 
 class SearchNetwork: ObservableObject {
     //tsetApi에있는 거를 옮김
-    @Published var searchText: String = ""
-    @Published var searchResultArray: [Poi] = []
+    @Published var searchText: String = "" //인풋
+    @Published var searchResultArray: [Poi] = [] //아웃풋
     var cancel = Set<AnyCancellable>()
+    
+
     func searchResult() {
         print(#function)
         //값의 변동을 체크
         $searchText
-        //for는 얼마주기로 할건지 , scheduler는 (0.8초 "뒤"에 행동을 메인쓰레드에서 돌리겠따.)
+        //for는 얼마주기로 할건지 , scheduler는 (0.8초 "뒤"에 행동을 메인쓰레드에서 돌리겠다.)
             .debounce(for: .milliseconds(800) , scheduler: RunLoop.main)
-        // 공백이오면 받지 않겠따.
+        // 공백이오면 받지 않겠다.
             .removeDuplicates()
             .sink { _ in
-                //데이터 완료가 끝났을 떄 적는 칸이라고 생각하면됨
-            } receiveValue: { text in
+                //데이터 완료가 끝났을 떄 적는 칸이라고 생각하면된다.
+            } receiveValue: { text in //중복된 값 제거
                 Task{
-                    self.searchResultArray = try await self.loadJson(searchTerm: text)
+                    let searchData = try await self.loadJson(searchTerm: text)
+                    DispatchQueue.main.async { self.searchResultArray = searchData }
+                    
                 }
-            }.store(in: &cancel)
+            }
+            //메모리 관리하기위해 쓴다고 생각하면된다.
+            .store(in: &cancel)
 //        viewModel.center!.searchPoiInfo.pois.poi
     }
     
@@ -40,7 +46,7 @@ class SearchNetwork: ObservableObject {
     func loadJson(searchTerm: String) async throws -> [Poi] {
         //        let url = URL(string: inputUrl)!
         print(#function)
-        let urlString = "https://apis.openapi.sk.com/tmap/pois?version=1&searchKeyword=\(fetchEncoded(searchTerm))&searchType=all&searchtypCd=A&reqCoordType=WGS84GEO&resCoordType=WGS84GEO&page=1&count=3&multiPoint=Y&poiGroupYn=N"
+        let urlString = "https://apis.openapi.sk.com/tmap/pois?version=1&searchKeyword=\(fetchEncoded(searchTerm))&searchType=all&searchtypCd=A&reqCoordType=WGS84GEO&resCoordType=WGS84GEO&page=1&count=5&multiPoint=Y&poiGroupYn=N"
         //내 리스트에있는 거를 최대 5개까지 불러오겠다
         var request = URLRequest(url: URL(string: urlString)!)
         
