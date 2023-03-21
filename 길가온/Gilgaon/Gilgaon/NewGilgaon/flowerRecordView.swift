@@ -64,7 +64,7 @@ struct FlowerRecordView: View {
                             .font(.custom("NotoSerifKR-Regular",size:18))
                             .fontWeight(.bold)
                         
-                        Text("\(Date().ISO8601Format())")
+                        Text("\(Date().currentDateString)")
                             .font(.custom("NotoSerifKR-Regular",size:18))
                             .fontWeight(.semibold)
                     }
@@ -143,6 +143,16 @@ struct FlowerRecordView: View {
     
 }
 
+extension Date{
+    var currentDateString : String{
+  
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        let str = dateFormatter.string(from: self)
+        return str
+    }
+}
+
 extension FlowerRecordView{
     
     private func friendCellView(_ friend: FriendModel) -> some View{
@@ -165,7 +175,10 @@ extension FlowerRecordView{
             }
             Text("\(friend.nickName)")
             Button {
-                friendList.remove(at: friendList.firstIndex(of: friend)!)
+                if let idx = friendList.firstIndex(of: friend) {
+                    friendList.remove(at:idx)
+                }
+                
             } label: {
                 Image(systemName: "xmark")
                     .foregroundColor(.gray)
