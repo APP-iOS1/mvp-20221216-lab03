@@ -20,8 +20,9 @@ struct DrawerDetailView: View {
     @State private var profileImage: UIImage? = nil
     @State var userProfile: FireStoreModel?
     @State var selectRecording = false
+
+
     var middleViewArray: [MiddleView] = [.list, .guestBook]
-    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -125,7 +126,7 @@ struct DrawerDetailView: View {
                             }
                             .offset(y: 70)
                         }
- 
+                        
                     }
                     //                        .offset(x: -65)
                     Spacer()
@@ -134,14 +135,22 @@ struct DrawerDetailView: View {
                         userNickNameText // fireStoreViewModel.userNickName
                         
                         NavigationLink {
-//                            AddFriendView(friendViewModel: friendViewModel)
+                            //                            AddFriendView(friendViewModel: friendViewModel)
                             FriendSettingView()
                         } label: {
                             Text("\(fireStoreViewModel.myFriendArray.count)명의 친구")
                                 .font(.custom("NotoSerifKR-Regular",size:16))
                             
+                        }.padding(.bottom, 5)
+                        
+                        HStack{
+                                Image(systemName: "record.circle")
+                                    .foregroundColor(isRecordingStatus ? .red : .gray)
+                                Text(isRecordingStatus ? "길가ON" : "길가OFF")
+                                    .font(.custom("NotoSerifKR-Regular",size:14))
+                                    .foregroundColor(isRecordingStatus ? Color("Red") : .gray)
                         }
-                        Text(isRecordingStatus ? "기록중" : "기록안하는중")
+
                         
                     }
                     Spacer()
@@ -181,6 +190,7 @@ struct DrawerDetailView: View {
             .fullScreenCover(isPresented: $showPicker) {
                 ImagePicker(image: $profileImage)
             }
+
         }
     }
 }
@@ -204,34 +214,7 @@ extension DrawerDetailView {
             .padding(.bottom, 10)
     }
     
-    
-    // 보류
-    @ViewBuilder
-    private func recordButton() -> some View {
-        if !selectRecording {
-            Button {
-                selectRecording.toggle()
-            } label: {
-                Text("기록하기")
-            }
 
-        }else{
-            HStack{
-                Button {
-                    selectRecording.toggle()
-                } label: {
-                    Text("기록완료")
-                }
-                
-                Button {
-                    
-                } label: {
-                    Text("마커찍기")
-                }
-            }
-        }
-    }
-    
 }
 
 struct DrawerDetailView_Previews: PreviewProvider {
