@@ -66,6 +66,7 @@
 		369CB73E293726E700C2E4BF /* JogakData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CB73D293726E700C2E4BF /* JogakData.swift */; };
 		36A0C2802954423700DFDD45 /* OnboardingMapDescribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0C27F2954423700DFDD45 /* OnboardingMapDescribeView.swift */; };
 		36BB028B29518BD300CF2816 /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB028A29518BD300CF2816 /* WritingView.swift */; };
+		4C403B1029C96796006FD46D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C403B0F29C96796006FD46D /* SearchBarView.swift */; };
 		4C7CB7FE29BEBAAE00B69EC9 /* GuestBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */; };
 		4C7CB80029BF053B00B69EC9 /* GuestBookWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CB7FF29BF053B00B69EC9 /* GuestBookWritingView.swift */; };
 		634BC63E2950369D0044B38B /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC63D2950369D0044B38B /* DrawerView.swift */; };
@@ -161,6 +162,7 @@
 		369CB73D293726E700C2E4BF /* JogakData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogakData.swift; sourceTree = "<group>"; };
 		36A0C27F2954423700DFDD45 /* OnboardingMapDescribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMapDescribeView.swift; sourceTree = "<group>"; };
 		36BB028A29518BD300CF2816 /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
+		4C403B0F29C96796006FD46D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookView.swift; sourceTree = "<group>"; };
 		4C7CB7FF29BF053B00B69EC9 /* GuestBookWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookWritingView.swift; sourceTree = "<group>"; };
 		634BC63D2950369D0044B38B /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				16F69DB129387D320045CD91 /* OnBoard */,
 				635AE3942935E9DC008A8452 /* LoginView.swift */,
 				16D46F982935EC7E00BB9440 /* TestAPIView.swift */,
+				4C403B0F29C96796006FD46D /* SearchBarView.swift */,
 				635AE3962935E9E2008A8452 /* HomeView.swift */,
 				635AE3982935E9E7008A8452 /* TabBarView.swift */,
 				635AE39A2935E9F0008A8452 /* RecordView.swift */,
@@ -563,6 +566,7 @@
 				639D9A5429BA115A009D6EAA /* CalendarViewModel.swift in Sources */,
 				635AE3952935E9DC008A8452 /* LoginView.swift in Sources */,
 				16F69DA7293845E80045CD91 /* LottieView.swift in Sources */,
+				4C403B1029C96796006FD46D /* SearchBarView.swift in Sources */,
 				3651BB8929B9AB620083F401 /* FlowerRecordView.swift in Sources */,
 				36BB028B29518BD300CF2816 /* WritingView.swift in Sources */,
 				3663C67129386372006880C9 /* LocationListView.swift in Sources */,
