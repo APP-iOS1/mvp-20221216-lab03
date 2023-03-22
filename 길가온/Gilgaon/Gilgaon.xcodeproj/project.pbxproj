@@ -50,6 +50,9 @@
 		16FA82CB293906BA006129D3 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 16FA82CA293906BA006129D3 /* PopupView */; };
 		362A085129557CC500C582B4 /* AddMarkerFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362A085029557CC500C582B4 /* AddMarkerFriendView.swift */; };
 		362DC67429389FD100507017 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DC67329389FD100507017 /* LocationFetcher.swift */; };
+		364F3BB329C6C1DE00FB2202 /* FriendSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F3BB229C6C1DE00FB2202 /* FriendSearchView.swift */; };
+		364F3BB529C6CF5500FB2202 /* FriendSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F3BB429C6CF5500FB2202 /* FriendSearchViewModel.swift */; };
+		364F3BB729C6EB4200FB2202 /* FriendSearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F3BB629C6EB4200FB2202 /* FriendSearchCellView.swift */; };
 		3651BB8929B9AB620083F401 /* FlowerRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651BB8829B9AB620083F401 /* FlowerRecordView.swift */; };
 		3651BB8B29B9D70A0083F401 /* CustomSheetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651BB8A29B9D70A0083F401 /* CustomSheetModifier.swift */; };
 		3651BB8D29B9DAD10083F401 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651BB8C29B9DAD10083F401 /* CustomSheetView.swift */; };
@@ -66,6 +69,7 @@
 		369CB73E293726E700C2E4BF /* JogakData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CB73D293726E700C2E4BF /* JogakData.swift */; };
 		36A0C2802954423700DFDD45 /* OnboardingMapDescribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0C27F2954423700DFDD45 /* OnboardingMapDescribeView.swift */; };
 		36BB028B29518BD300CF2816 /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB028A29518BD300CF2816 /* WritingView.swift */; };
+		36EBF39529C1E6460057F3C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36EBF39429C1E6460057F3C1 /* GoogleService-Info.plist */; };
 		4C403B1029C96796006FD46D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C403B0F29C96796006FD46D /* SearchBarView.swift */; };
 		4C7CB7FE29BEBAAE00B69EC9 /* GuestBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */; };
 		634BC63E2950369D0044B38B /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC63D2950369D0044B38B /* DrawerView.swift */; };
@@ -149,6 +153,10 @@
 		16FA82C7293906A6006129D3 /* PopupTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTest.swift; sourceTree = "<group>"; };
 		362A085029557CC500C582B4 /* AddMarkerFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkerFriendView.swift; sourceTree = "<group>"; };
 		362DC67329389FD100507017 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		364F3BB229C6C1DE00FB2202 /* FriendSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchView.swift; sourceTree = "<group>"; };
+		364F3BB429C6CF5500FB2202 /* FriendSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchViewModel.swift; sourceTree = "<group>"; };
+		364F3BB629C6EB4200FB2202 /* FriendSearchCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchCellView.swift; sourceTree = "<group>"; };
+		3651BB8629B9A9620083F401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3651BB8829B9AB620083F401 /* FlowerRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerRecordView.swift; sourceTree = "<group>"; };
 		3651BB8A29B9D70A0083F401 /* CustomSheetModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetModifier.swift; sourceTree = "<group>"; };
 		3651BB8C29B9DAD10083F401 /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
@@ -164,6 +172,7 @@
 		369CB73D293726E700C2E4BF /* JogakData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogakData.swift; sourceTree = "<group>"; };
 		36A0C27F2954423700DFDD45 /* OnboardingMapDescribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMapDescribeView.swift; sourceTree = "<group>"; };
 		36BB028A29518BD300CF2816 /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
+		36EBF39429C1E6460057F3C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4C403B0F29C96796006FD46D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookView.swift; sourceTree = "<group>"; };
 		634BC63D2950369D0044B38B /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
@@ -261,6 +270,10 @@
 				3651BB8A29B9D70A0083F401 /* CustomSheetModifier.swift */,
 				3651BB8C29B9DAD10083F401 /* CustomSheetView.swift */,
 				4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */,
+				4C7CB7FF29BF053B00B69EC9 /* GuestBookWritingView.swift */,
+				364F3BB229C6C1DE00FB2202 /* FriendSearchView.swift */,
+				364F3BB429C6CF5500FB2202 /* FriendSearchViewModel.swift */,
+				364F3BB629C6EB4200FB2202 /* FriendSearchCellView.swift */,
 			);
 			path = NewGilgaon;
 			sourceTree = "<group>";
@@ -351,6 +364,7 @@
 				6FF334CA2935F1D9007438B1 /* Info.plist */,
 				6352D9B629C5498E00928BAE /* GoogleService-Info.plist */,
 				635AE3842935E932008A8452 /* GilgaonApp.swift */,
+				36EBF39429C1E6460057F3C1 /* GoogleService-Info.plist */,
 				C068E0C729C8087E0070D71A /* GoogleService-Info.plist */,
 				3663C66D2938631E006880C9 /* MapVIew */,
 				635AE3A729361971008A8452 /* View */,
@@ -518,6 +532,7 @@
 			files = (
 				635AE38C2935E934008A8452 /* Preview Assets.xcassets in Resources */,
 				1642F0FD29388BC6005A54EF /* NotoSerifKR-Medium.otf in Resources */,
+				36EBF39529C1E6460057F3C1 /* GoogleService-Info.plist in Resources */,
 				1642F0FC29388BC6005A54EF /* NotoSerifKR-SemiBold.otf in Resources */,
 				1642F0FF29388BC6005A54EF /* NotoSerifKR-Bold.otf in Resources */,
 				16CA72952939BDE200D451F0 /* AppIcon.appiconset in Resources */,
@@ -550,6 +565,7 @@
 				16D46FA32935EC7F00BB9440 /* SearchModel.swift in Sources */,
 				369484C22952E1960030890A /* Util.swift in Sources */,
 				369CB73E293726E700C2E4BF /* JogakData.swift in Sources */,
+				364F3BB329C6C1DE00FB2202 /* FriendSearchView.swift in Sources */,
 				16EE2F662951508D00414279 /* FireStoreViewModel.swift in Sources */,
 				635AE3A529360AE8008A8452 /* DateVaule.swift in Sources */,
 				3663C679293863C4006880C9 /* LocationsViewModel.swift in Sources */,
@@ -569,6 +585,7 @@
 				639D9A5429BA115A009D6EAA /* CalendarViewModel.swift in Sources */,
 				C068E0CC29C808D10070D71A /* FriendGuestBookView.swift in Sources */,
 				635AE3952935E9DC008A8452 /* LoginView.swift in Sources */,
+				364F3BB729C6EB4200FB2202 /* FriendSearchCellView.swift in Sources */,
 				16F69DA7293845E80045CD91 /* LottieView.swift in Sources */,
 				4C403B1029C96796006FD46D /* SearchBarView.swift in Sources */,
 				3651BB8929B9AB620083F401 /* FlowerRecordView.swift in Sources */,
@@ -583,6 +600,7 @@
 				63D2C123293836CD0011BC89 /* DayTask.swift in Sources */,
 				16F69DB629387E030045CD91 /* OnboardingTabView.swift in Sources */,
 				634BC646295043110044B38B /* FriendsView.swift in Sources */,
+				364F3BB529C6CF5500FB2202 /* FriendSearchViewModel.swift in Sources */,
 				16A60C1829B044DC00116569 /* FriendSettingView.swift in Sources */,
 				16D46FA42935EC7F00BB9440 /* SearchNetwork.swift in Sources */,
 				3651BB8F29BB493A0083F401 /* CalendarVViewModel.swift in Sources */,

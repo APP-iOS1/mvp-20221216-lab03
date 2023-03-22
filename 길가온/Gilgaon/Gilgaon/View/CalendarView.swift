@@ -26,6 +26,7 @@ struct CalendarView: View {
         }.customSheet(
             isPresented: $calendarVViewModel.isTapped,
             isRecording: $calendarVViewModel.isRecordingStatus,
+            recordingID: $calendarVViewModel.recordingKey,
             title: "",
             message: "",
             firstButtonTitle: "",

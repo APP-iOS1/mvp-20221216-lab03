@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct CustomSheetView: View {
+ 
     @Binding var isPresendted:Bool
     @Binding var isRecording: Bool
+    @Binding var recordingID: String
     let stopWritingButtonAction: () -> Void
     let markerWritingButtonAction: () -> Void
     
@@ -70,8 +72,8 @@ extension CustomSheetView{
 
                 }
                 
-                Button {
-                    
+                NavigationLink {
+                    FlowerMapView(getStringValue: recordingID)
                 } label: {
                     VStack(spacing: 10){
                         Image(systemName: "map")
@@ -98,8 +100,8 @@ extension CustomSheetView{
     }
 }
 
-struct CustomSheetView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomSheetView(isPresendted: .constant(false), isRecording: .constant(false), stopWritingButtonAction: {}, markerWritingButtonAction: {})
-    }
-}
+//struct CustomSheetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CustomSheetView(isPresendted: .constant(false), isRecording: .constant(false), stopWritingButtonAction: {}, markerWritingButtonAction: {})
+//    }
+//}

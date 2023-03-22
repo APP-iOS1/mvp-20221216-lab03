@@ -9,15 +9,25 @@
 import SwiftUI
 
 struct FlowerRecordView: View {
-    @Environment(\.dismiss) private var dismiss
-    @AppStorage("isRecording") var isRecordingStatus: Bool = UserDefaults.standard.bool(forKey: "isRecording")
+    
     @State private var titleString = ""
+    @State private var sheetViewToggle = false
+    @State private var friendList:[FriendModel] = []
+    @StateObject private var friendSearchViewModel = FriendSearchViewModel()
+    
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var fireStoreViewModel: FireStoreViewModel
+    
+//    @AppStorage("recordingKey") var recordingKey: String = UserDefaults.standard.string(forKey: "recordingKey") ?? ""
+//    @AppStorage("isRecording") var isRecordingStatus: Bool = UserDefaults.standard.bool(forKey: "isRecording")
+//    
     var body: some View {
         GeometryReader{ g in
             ZStack{
                 Color("White")
                     .ignoresSafeArea()
                 
+                // [Title] 꽃갈피
                 ZStack(alignment: .leading) {
                     MyPath3()
                         .stroke(Color("Pink"))
@@ -36,7 +46,7 @@ struct FlowerRecordView: View {
                     VStack(alignment: .leading){
                         Text("- 제목 ")
                         HStack{
-                            TextField("어디에있나요", text: $titleString )
+                            TextField("제목을 입력하세요.", text: $titleString )
                                 .fontWeight(.semibold)
                             Button {
                                 
@@ -48,47 +58,61 @@ struct FlowerRecordView: View {
                     .font(.custom("NotoSerifKR-Regular",size:18))
                     .fontWeight(.bold)
                     
+                    //[날짜]
                     VStack(alignment: .leading, spacing: 10){
                         Text("- 날짜")
                             .font(.custom("NotoSerifKR-Regular",size:18))
                             .fontWeight(.bold)
-
-                        Text("\(Date().ISO8601Format())")
+                        
+                        Text("\(Date().currentDateString)")
                             .font(.custom("NotoSerifKR-Regular",size:18))
                             .fontWeight(.semibold)
                     }
                     
                     //[함께할 친구]
-                    VStack(alignment: .leading, spacing: 10){
+                    VStack(alignment: .leading){
                         HStack{
                             Text("- 함께할 친구")
                                 .font(.custom("NotoSerifKR-Regular",size:18))
                                 .fontWeight(.bold)
+                            Spacer()
+                            Button {
+                                sheetViewToggle.toggle()
+                            } label: {
+                                HStack{
+                                    Text("친구찾기")
+                                    Image(systemName: "magnifyingglass")
+                                }.foregroundColor(.gray)
+                            }
+                            .fullScreenCover(isPresented: $sheetViewToggle){
+                                FriendSearchView(friendList: $friendList, friendSearchViewModel: friendSearchViewModel)
+                            }
                         }
-                        HStack{
-//                            Button {
-//
-//                            } label: {
-//                                Image(systemName: "person.badge.plus")
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .frame(width: 20)
-//                                Text("친구 등록")
-//                                    .font(.custom("NotoSerifKR-Regular",size:18))
-//                            }
-//                            .padding(12)
-//                            .foregroundColor(.black)
-//                            .frame(minWidth: 120)
-//                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("Pink")))
-//                            friendCellView
+                        ScrollView(.horizontal, showsIndicators: false){
+                            HStack(spacing: 10){
+                                ForEach(friendList) { friend in
+                                    friendCellView(friend)
+                                }
+                            }
                         }
+                        
+                        Spacer()
                     }
+                    .frame(width: 300,height: 150)
+
                     Spacer()
                     HStack(alignment:  .center){
                         Spacer()
                         Button {
-                            isRecordingStatus = true
-                            NotificationCenter.default.post(name: Notification.Name("isRecording"), object: nil)
+                            var shareFriend:[String] = []
+                            let createdAt = Date().timeIntervalSince1970
+                            friendList.forEach{ shareFriend.append($0.id) }
+                            let rKey = UUID().uuidString
+                            let calendar = DayCalendarModel(id: rKey, taskDate: Date(), title: titleString, shareFriend: shareFriend, realDate: createdAt)
+                            fireStoreViewModel.addCalendar(calendar)
+//                            isRecordingStatus = true
+
+                            NotificationCenter.default.post(name: Notification.Name("isRecording"), object: (true, rKey))
                             dismiss()
                         } label: {
                             Text("기록하기")
@@ -119,18 +143,58 @@ struct FlowerRecordView: View {
     
 }
 
+extension Date{
+    var currentDateString : String{
+  
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        let str = dateFormatter.string(from: self)
+        return str
+    }
+}
+
 extension FlowerRecordView{
     
-    private var friendCellView: some View{
+    private func friendCellView(_ friend: FriendModel) -> some View{
         HStack{
-            Image(systemName: "person")
-            Text("정세훈")
-        }.background(.cyan)
+            AsyncImage(url: URL(string: friend.userPhoto)) { Image in
+                Image
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 20, height: 20)
+                    .overlay(RoundedRectangle(cornerRadius: 64)
+                        .stroke(Color("Pink"), lineWidth: 3))
+            } placeholder: {
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(Color("Pink"))
+                    .frame(width: 20, height: 20)
+                    .aspectRatio(contentMode: .fit)
+                
+            }
+            Text("\(friend.nickName)")
+            Button {
+                if let idx = friendList.firstIndex(of: friend) {
+                    friendList.remove(at:idx)
+                }
+                
+            } label: {
+                Image(systemName: "xmark")
+                    .foregroundColor(.gray)
+            }
+        }
+        .frame(width: 120, height: 50)
+        .overlay{
+            Capsule()
+                .stroke(Color.white, lineWidth: 1)
+        }
     }
 }
 
 struct FlowerRecordView_Previews: PreviewProvider {
     static var previews: some View {
         FlowerRecordView()
+        
     }
 }

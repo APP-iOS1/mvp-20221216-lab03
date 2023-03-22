@@ -10,7 +10,7 @@ import SwiftUI
 
 struct WritingView: View {
     @EnvironmentObject var firestoreViewModel:FireStoreViewModel
-    
+    @AppStorage("recordingKey") var recordingKey = UserDefaults.standard.string(forKey: "recordingKey") ?? ""
     @EnvironmentObject var viewModel: SearchViewModel
     
     @State private var travelName2: String = ""
@@ -168,6 +168,7 @@ struct WritingView: View {
                 }
             }
         }
+        .onAppear{ firestoreViewModel.nowCalendarId = recordingKey }
         .fullScreenCover(isPresented: $shouldShowImagePicker) {
             ImagePicker(image: $image)
         }
