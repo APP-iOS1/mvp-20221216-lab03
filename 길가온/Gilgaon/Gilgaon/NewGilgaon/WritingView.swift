@@ -212,5 +212,7 @@ struct MyPath3: Shape {
 struct WritingView_Previews: PreviewProvider {
     static var previews: some View {
         WritingView()
+            .environmentObject(FireStoreViewModel())
+            .environmentObject(SearchViewModel())
     }
 }

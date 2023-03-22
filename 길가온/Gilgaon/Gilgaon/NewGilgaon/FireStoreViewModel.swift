@@ -28,14 +28,49 @@ class FireStoreViewModel: ObservableObject {
     @Published var isRecording: Bool = false
     @Published var profileUrlString: String?
     @Published var searchText: String = ""
-    private var cancellables = Set<AnyCancellable>()
+//    @Published var searchViewModelArra : [SearchViewModel] = []
+//    @Published var searchNetworkArray: SearchNetwork?
     
+    private var cancellables = Set<AnyCancellable>()
     @Published var userNickName: String = ""
     let database = Firestore.firestore()
     var nowCalendarId: String = ""
     var currentUserId:String?{ Auth.auth().currentUser?.uid }
-    
     @Published var guestBookList:[GuestBookModel] = []
+    
+
+//
+//    func getUserInText(searchText: String) {
+//
+//        $searchText
+//            .debounce(for: .milliseconds(800), scheduler: RunLoop.main)
+//            .removeDuplicates()
+//                        .map({ (string) -> String? in
+//                            if string.count < 1 {
+//                                self.searchViewModelArray = []
+//                                return nil
+//                            }
+//
+//                            return string
+//                        })
+//                        .compactMap{ $0 }
+//                        .sink { (_) in
+//                        } receiveValue: { [self] (searchField) in
+//                            searchItems(searchText: searchField)
+//                        }.store(in: &subscription)
+//        }
+//    func searchItems(searchText: String) {
+//        SearchNetwork.shared.sendReQuest
+//            NetworkManager.shared.sendRequest(to: ApiConstants.ProductSearchPath.description, model: Products.self, queryItems: ["name": searchText])
+//                .receive(on: RunLoop.main)
+//                .sink { (completed) in
+//                    //
+//                } receiveValue: { [self] (searchedProducts) in
+//                    products = searchedProducts
+//                }.store(in: &subscription)
+//        }
+
+
     
     // [Image to Storage]
     func uploadImageToStorage(userImage: UIImage, photoId: String) {
