@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PleaseLoginView: View {
     @EnvironmentObject var registerModel: RegisterModel
+    @EnvironmentObject var locationFetcher: LocationFetcher
     var body: some View {
         
         NavigationStack {
@@ -27,7 +28,14 @@ struct PleaseLoginView: View {
                 if registerModel.currentUserProfile != nil {
                     HomeView()
                         .deferredRendering(for: 1.0)
-                } else { LoginView() }
+                } else {
+                    if locationFetcher.recentLocation != nil {
+                        HomeView()
+                    } else {
+                        LoginView()
+                    }
+                    
+                }
             }
             .onChange(of: registerModel.currentUserProfile, perform: { newValue in
                 registerModel.currentUserProfile = newValue

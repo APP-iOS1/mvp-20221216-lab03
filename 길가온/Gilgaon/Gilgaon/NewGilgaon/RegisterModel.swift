@@ -140,6 +140,7 @@ class RegisterModel: ObservableObject {
     // MARK: - UserProfile 유무 판별함수
     /// 로그인 후, 해당 유저의 프로필이 등록되어있는지 확인하는 함수
     func fetchUserInfo(_ userId: String) async throws -> FireStoreModel? {
+        print(#function)
         guard (Auth.auth().currentUser != nil) else { return nil}
         let ref = Firestore.firestore().collection("User").document(userId)
         let snapshot = try await ref.getDocument()

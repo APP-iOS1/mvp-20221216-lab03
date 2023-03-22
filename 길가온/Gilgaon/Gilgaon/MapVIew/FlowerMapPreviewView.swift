@@ -21,8 +21,8 @@ struct FlowerMapPreview: View {
             VStack(spacing:8){
                 detailButton.sheet(isPresented: $isTapped) {
                     
-                    SheetView()
-                        .presentationDetents([.height(450)])
+//                    SheetView()
+//                        .presentationDetents([.height(450)])
                 }
                 
                 nextButton
