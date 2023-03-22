@@ -67,6 +67,17 @@ struct MarkerModel: Identifiable, Equatable, Hashable {
         return dateFormatter.string(from: dateCreatedAt)
     }
     
+    var calendarDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_Kr")
+        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+        dateFormatter.dateFormat = "HH:mm"
+        
+        let dateCreatedAt = Date(timeIntervalSince1970: createdAt)
+        
+        return dateFormatter.string(from: dateCreatedAt)
+    }
+    
     static func == (lhs: MarkerModel, rhs: MarkerModel) -> Bool {
         lhs.id == rhs.id
     }
