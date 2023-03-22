@@ -1,25 +1,26 @@
 //
-//  GuestBookView.swift
+//  FriendGuestBookView.swift
 //  Gilgaon
 //
-//  Created by 정소희 on 2023/03/13.
+//  Created by 전준수 on 2023/03/20.
 //
 
 import SwiftUI
 import FirebaseAuth
 
-enum AlertType {
-    case delete, report, cancel, registration
+enum FriendAlertType {
+    case delete, cancel
 }
 
-struct GuestBookView: View {
+struct FriendGuestBookView: View {
     
     @State private var ellipsisToggle: Bool = false // ...버튼
     @State private var showingAlert = false // ...버튼 누르고 삭제 버튼 누르면 다시한번 올라오는 얼럿용 토글
     @State private var friendAlertType = FriendAlertType.delete
     @State private var guestBookFullScreenToggle = false
     @State private var profileImage: UIImage? = nil
-    @StateObject private var fireStoreViewModel = FireStoreViewModel()
+    @State var friendID: String
+    @StateObject private var friendViewModel = FriendViewModel()
     
     var guestBook: String = "  " //방명록
     var currentUserId:String?{ Auth.auth().currentUser?.uid }
@@ -27,7 +28,7 @@ struct GuestBookView: View {
     var body: some View {
         GeometryReader { geometry in
             //빙명록이 비어있을 경우
-            if fireStoreViewModel.guestBookList.isEmpty {
+            if friendViewModel.friendGuestBookList.isEmpty {
                 
                 guestBookIsEmptyTexts
                 
@@ -35,7 +36,7 @@ struct GuestBookView: View {
                 ZStack {
                     ScrollView {
                         VStack {
-                            ForEach(fireStoreViewModel.guestBookList) { value in
+                            ForEach(friendViewModel.friendGuestBookList) { value in
                                 HStack(alignment: .top, spacing: 10) {
                                     
                                     VStack {
@@ -103,29 +104,14 @@ struct GuestBookView: View {
                                     
                                     Spacer()
                                     
-                    
-                                    HStack {
+                                    // 본인이 작성한 방문록만 삭제 가능
+                                    if currentUserId == value.from {
+                                        
                                         Button {
-                                            fireStoreViewModel.deleteGuestBook(guestBook: value)
+                                            friendViewModel.deleteFriendGuestBook(guestBook: value, friendID: friendID)
                                         } label: {
                                             Text("삭제")
                                         }
-                                        
-                                        if value.report == false {
-                                            Button {
-                                                fireStoreViewModel.reportGuestBookON(guestBook: value)
-                                            } label: {
-                                                Text("신고")
-                                            }
-                                        } else {
-                                            Button {
-                                                fireStoreViewModel.ReportGuestBookOFF(guestBook: value)
-                                            } label: {
-                                                Text("신고취소")
-                                            }
-                                        }
-                                    
-                                    }
 
                                         
                                         
@@ -167,7 +153,8 @@ struct GuestBookView: View {
 //                                            }
 //                                        }
                                         
-                         
+                                        
+                                    }
                                 }
                                 .padding(.horizontal)
                                 
@@ -180,16 +167,36 @@ struct GuestBookView: View {
                     }
                 }
             }
-
+            //방명록 작성하는 버튼
+            Button(action: {
+                print("방명록 글쓰기 버튼 누름")
+                guestBookFullScreenToggle = true
+            }) {
+                Circle()
+                    .fill(Color("Pink"))
+                    .frame(width: geometry.size.width/6.5, height: geometry.size.height/6.5)
+                    .opacity(0.8)
+                    .overlay {
+                        Image(systemName: "pencil")
+                            .resizable()
+                            .foregroundColor(Color.white)
+                            .frame(width: geometry.size.width/14.5, height: geometry.size.height/19.5)
+                    }
+                
+            }
+            .offset(x: geometry.size.width/1.22, y: geometry.size.height/1.21)
+            .fullScreenCover(isPresented: $guestBookFullScreenToggle) {
+                FriendGuestBookWritingView(guestBookFullScreenToggle: $guestBookFullScreenToggle, friendID: friendID)
+            }
         }
         .refreshable {
             Task{
-                await fireStoreViewModel.fetchGuestBook()
+                await friendViewModel.fetchFriendGuestBook(friendID: friendID)
             }
         }
         .onAppear {
             Task{
-                await fireStoreViewModel.fetchGuestBook()
+                await friendViewModel.fetchFriendGuestBook(friendID: friendID)
             }
         }
     }
@@ -197,7 +204,7 @@ struct GuestBookView: View {
     
 }
 
-extension GuestBookView {
+extension FriendGuestBookView {
     
     private var guestBookIsEmptyTexts: some View {
         VStack {
@@ -215,8 +222,8 @@ extension GuestBookView {
     }
 }
 
-//struct GuestBookView_Previews: PreviewProvider {
+//struct FriendGuestBookView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        GuestBookView()
+//        FriendGuestBookView()
 //    }
 //}

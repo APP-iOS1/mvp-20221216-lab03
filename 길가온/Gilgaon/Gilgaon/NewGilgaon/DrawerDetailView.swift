@@ -20,7 +20,7 @@ struct DrawerDetailView: View {
     @State private var profileImage: UIImage? = nil
     @State var userProfile: FireStoreModel?
     @State var selectRecording = false
-    var middleViewArray: [MiddleView] = [.list, .guestBook]
+    var middleViewArray: [MiddleView] = [.guestBook, .list]
     
     var body: some View {
         GeometryReader { geometry in

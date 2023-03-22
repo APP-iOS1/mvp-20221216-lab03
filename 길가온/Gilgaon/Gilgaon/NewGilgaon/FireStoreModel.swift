@@ -93,6 +93,27 @@ struct FriendModel: Codable,Identifiable,Hashable {
     var userEmail: String
 }
 
-
+struct GuestBookModel: Codable,Identifiable,Hashable {
+    var id: String // Document ID
+    // GuestBook 값들
+    var to: String // 받는 사람
+    var from: String // 보내는 사람
+    var fromNickName: String // 보내는 사람 닉네임
+    var fromPhoto: String // 보내는 사람 사진
+    var board: String // 방명록 내용
+    var date: Double // 작성 날짜
+    var createdDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_kr")
+        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+        dateFormatter.dateFormat = "yyyy-MM-dd" // "yyyy-MM-dd HH:mm:ss"
+        
+        let dateCreatedAt = Date(timeIntervalSince1970: date)
+        print(dateCreatedAt)
+        print(Date().timeIntervalSince1970)
+        return dateFormatter.string(from: dateCreatedAt)
+    }
+    var report: Bool // 신고 상태
+}
 
 
