@@ -13,7 +13,7 @@ struct TestAPIView: View {
     @StateObject var searchNetwork: SearchNetwork = SearchNetwork()
     @EnvironmentObject var viewModel: SearchViewModel
     @ObservedObject var jogakData: JogakData = JogakData()
-    @EnvironmentObject private var vm: LocationsViewModel
+//    @EnvironmentObject private var vm: LocationsViewModel
     //    @State private var searchText: String = ""
     @State private var isSearching: Bool =  false
     @Binding var lonString: String
@@ -67,7 +67,7 @@ struct TestAPIView: View {
                         lanString = datum.frontLat // 목적지의 경도
                         
                         dismiss()
-                        vm.doSomeThing()
+//                        vm.doSomeThing()
                     } label: {
                         Text("\(datum.name)")
                             .font(.custom("NotoSerifKR-SemiBold", size: 15))
@@ -96,6 +96,6 @@ struct TestAPIView_Previews: PreviewProvider {
     static var previews: some View {
         TestAPIView(lonString: .constant(""), lanString: .constant(""), locationName: .constant(""))
             .environmentObject(SearchViewModel())
-            .environmentObject(LocationsViewModel())
+//            .environmentObject(LocationsViewModel())
     }
 }
