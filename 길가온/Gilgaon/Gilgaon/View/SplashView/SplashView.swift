@@ -60,6 +60,7 @@ struct SplashView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     self.isActive = true
                 }
+                print("Splash")
             }
         }
     }

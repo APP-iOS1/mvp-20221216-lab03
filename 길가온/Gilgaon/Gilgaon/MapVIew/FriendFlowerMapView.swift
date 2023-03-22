@@ -1,29 +1,23 @@
 //
-//  ContentView.swift
-//  MapAnnotation
+//  FriendFlowerMapView.swift
+//  Gilgaon
 //
-//  Created by sehooon on 2022/11/30.
+//  Created by 전준수 on 2023/03/13.
 //
+
 import SwiftUI
 import MapKit
 
-struct Place: Identifiable{
-    var id = UUID()
-    var name: String = ""
-    var coordinate: CLLocationCoordinate2D
-}
-
-struct FlowerMapView: View {
-    
+struct FriendFlowerMapView: View {
+    @StateObject private var friendViewModel = FriendViewModel()
     @StateObject var flowerMapViewModel = FlowerMapViewModel()
     @State var getStringValue: String
     @State private var mapRegion = MKCoordinateRegion()
     @State var userTracking = MapUserTrackingMode.follow
     @State var value = 0
+    @State var friendID: String
     var body: some View {
-        UserMapView(flowerMapViewModel: flowerMapViewModel)
-            .ignoresSafeArea()
-            .overlay{
+        UserMapView(flowerMapViewModel: flowerMapViewModel).overlay{
             VStack{
                 header
                     .padding()
@@ -39,11 +33,10 @@ struct FlowerMapView: View {
                 }
             }
         }
-        
         .onAppear{
             Task{
                 print(getStringValue)
-                await flowerMapViewModel.fetchMarkers(inputID: getStringValue)
+                await flowerMapViewModel.fetchFriendMarkers(userUid: friendID, inputID: getStringValue)
             }
         }
     }
@@ -51,7 +44,7 @@ struct FlowerMapView: View {
     
 }
 
-extension FlowerMapView {
+extension FriendFlowerMapView {
     var header: some View{
         Button(action: flowerMapViewModel.toggleLocationsList){
             VStack{
@@ -79,13 +72,3 @@ extension FlowerMapView {
         }
     }
 }
-
-
-
-//struct FlowerMapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FlowerMapView()
-//            .environmentObject(LocationsViewModel())
-//    }
-//}
-

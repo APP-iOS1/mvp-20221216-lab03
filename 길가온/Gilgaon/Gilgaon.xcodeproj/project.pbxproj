@@ -21,7 +21,7 @@
 		1683284329B6DCC800B3EF73 /* FlowerMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683284229B6DCC800B3EF73 /* FlowerMapViewModel.swift */; };
 		1683284529B6DD0E00B3EF73 /* DrawerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683284429B6DD0E00B3EF73 /* DrawerDetailView.swift */; };
 		1683284729B6DE6500B3EF73 /* UserMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683284629B6DE6500B3EF73 /* UserMapView.swift */; };
-		1683284929B6F9DB00B3EF73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1683284829B6F9DB00B3EF73 /* GoogleService-Info.plist */; };
+		169F903129CB19A70034A227 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 169F903029CB19A70034A227 /* GoogleService-Info.plist */; };
 		16A60C1429B039C300116569 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 16A60C1329B039C300116569 /* SkeletonUI */; };
 		16A60C1629B0448600116569 /* SegmentControllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1529B0448600116569 /* SegmentControllView.swift */; };
 		16A60C1829B044DC00116569 /* FriendSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A60C1729B044DC00116569 /* FriendSettingView.swift */; };
@@ -49,6 +49,13 @@
 		16FA82CB293906BA006129D3 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 16FA82CA293906BA006129D3 /* PopupView */; };
 		362A085129557CC500C582B4 /* AddMarkerFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362A085029557CC500C582B4 /* AddMarkerFriendView.swift */; };
 		362DC67429389FD100507017 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DC67329389FD100507017 /* LocationFetcher.swift */; };
+		364F3BB329C6C1DE00FB2202 /* FriendSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F3BB229C6C1DE00FB2202 /* FriendSearchView.swift */; };
+		364F3BB529C6CF5500FB2202 /* FriendSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F3BB429C6CF5500FB2202 /* FriendSearchViewModel.swift */; };
+		364F3BB729C6EB4200FB2202 /* FriendSearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F3BB629C6EB4200FB2202 /* FriendSearchCellView.swift */; };
+		3651BB8929B9AB620083F401 /* FlowerRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651BB8829B9AB620083F401 /* FlowerRecordView.swift */; };
+		3651BB8B29B9D70A0083F401 /* CustomSheetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651BB8A29B9D70A0083F401 /* CustomSheetModifier.swift */; };
+		3651BB8D29B9DAD10083F401 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651BB8C29B9DAD10083F401 /* CustomSheetView.swift */; };
+		3651BB8F29BB493A0083F401 /* CalendarVViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651BB8E29BB493A0083F401 /* CalendarVViewModel.swift */; };
 		3663C67129386372006880C9 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C67029386372006880C9 /* LocationListView.swift */; };
 		3663C67329386383006880C9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C67229386383006880C9 /* Location.swift */; };
 		3663C67529386397006880C9 /* FlowerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C67429386397006880C9 /* FlowerMapView.swift */; };
@@ -61,6 +68,8 @@
 		369CB73E293726E700C2E4BF /* JogakData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CB73D293726E700C2E4BF /* JogakData.swift */; };
 		36A0C2802954423700DFDD45 /* OnboardingMapDescribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0C27F2954423700DFDD45 /* OnboardingMapDescribeView.swift */; };
 		36BB028B29518BD300CF2816 /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB028A29518BD300CF2816 /* WritingView.swift */; };
+		4C403B1029C96796006FD46D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C403B0F29C96796006FD46D /* SearchBarView.swift */; };
+		4C7CB7FE29BEBAAE00B69EC9 /* GuestBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */; };
 		634BC63E2950369D0044B38B /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC63D2950369D0044B38B /* DrawerView.swift */; };
 		634BC6402950398C0044B38B /* DrawerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC63F2950398C0044B38B /* DrawerListView.swift */; };
 		634BC642295039D10044B38B /* DrawerScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BC641295039D10044B38B /* DrawerScheduleView.swift */; };
@@ -82,6 +91,7 @@
 		63660F4E2937216F00B70272 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63660F4D2937216F00B70272 /* ImagePicker.swift */; };
 		63660F522937573500B70272 /* Customtoggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63660F512937573500B70272 /* Customtoggle.swift */; };
 		6380E7802952C3EE007772C3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6380E77F2952C3EE007772C3 /* FirebaseStorage */; };
+		639D9A5429BA115A009D6EAA /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639D9A5329BA115A009D6EAA /* CalendarViewModel.swift */; };
 		63D2C123293836CD0011BC89 /* DayTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2C122293836CD0011BC89 /* DayTask.swift */; };
 		63D2C1282938379C0011BC89 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2C1272938379C0011BC89 /* TaskViewModel.swift */; };
 		63D2C12A2938388A0011BC89 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2C1292938388A0011BC89 /* DayView.swift */; };
@@ -90,6 +100,12 @@
 		6FF334C52935F1B3007438B1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 6FF334C42935F1B3007438B1 /* KakaoSDKCommon */; };
 		6FF334C72935F1B3007438B1 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 6FF334C62935F1B3007438B1 /* KakaoSDKUser */; };
 		6FF334C92935F1CD007438B1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6FF334C82935F1CC007438B1 /* Config.xcconfig */; };
+		C068E0AE29BE04770070D71A /* FriendDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0AD29BE04770070D71A /* FriendDrawerView.swift */; };
+		C068E0B229BE1B720070D71A /* FriendFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0B129BE1B720070D71A /* FriendFriendView.swift */; };
+		C068E0BC29BE47770070D71A /* FriendDrawerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */; };
+		C068E0BE29BE5B470070D71A /* FriendFlowerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0BD29BE5B470070D71A /* FriendFlowerMapView.swift */; };
+		C068E0CC29C808D10070D71A /* FriendGuestBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0CB29C808D10070D71A /* FriendGuestBookView.swift */; };
+		C068E0D229C8B0420070D71A /* FriendGuestBookWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068E0D129C8B0420070D71A /* FriendGuestBookWritingView.swift */; };
 		C0B7045B29388F1200245ED7 /* Sakura.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B7045A29388F1200245ED7 /* Sakura.json */; };
 		C0C44ACB2950AAA8006FE8A4 /* PleaseLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */; };
 /* End PBXBuildFile section */
@@ -107,7 +123,7 @@
 		1683284229B6DCC800B3EF73 /* FlowerMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerMapViewModel.swift; sourceTree = "<group>"; };
 		1683284429B6DD0E00B3EF73 /* DrawerDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerDetailView.swift; sourceTree = "<group>"; };
 		1683284629B6DE6500B3EF73 /* UserMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapView.swift; sourceTree = "<group>"; };
-		1683284829B6F9DB00B3EF73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../google info/길가온/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		169F903029CB19A70034A227 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../google info/길가온/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		16A60C1529B0448600116569 /* SegmentControllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControllView.swift; sourceTree = "<group>"; };
 		16A60C1729B044DC00116569 /* FriendSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSettingView.swift; sourceTree = "<group>"; };
 		16A60C1929B0463400116569 /* FriendRequestCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestCheckView.swift; sourceTree = "<group>"; };
@@ -132,6 +148,13 @@
 		16FA82C7293906A6006129D3 /* PopupTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTest.swift; sourceTree = "<group>"; };
 		362A085029557CC500C582B4 /* AddMarkerFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkerFriendView.swift; sourceTree = "<group>"; };
 		362DC67329389FD100507017 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		364F3BB229C6C1DE00FB2202 /* FriendSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchView.swift; sourceTree = "<group>"; };
+		364F3BB429C6CF5500FB2202 /* FriendSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchViewModel.swift; sourceTree = "<group>"; };
+		364F3BB629C6EB4200FB2202 /* FriendSearchCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchCellView.swift; sourceTree = "<group>"; };
+		3651BB8829B9AB620083F401 /* FlowerRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerRecordView.swift; sourceTree = "<group>"; };
+		3651BB8A29B9D70A0083F401 /* CustomSheetModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetModifier.swift; sourceTree = "<group>"; };
+		3651BB8C29B9DAD10083F401 /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
+		3651BB8E29BB493A0083F401 /* CalendarVViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVViewModel.swift; sourceTree = "<group>"; };
 		3663C67029386372006880C9 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		3663C67229386383006880C9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3663C67429386397006880C9 /* FlowerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerMapView.swift; sourceTree = "<group>"; };
@@ -143,6 +166,8 @@
 		369CB73D293726E700C2E4BF /* JogakData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogakData.swift; sourceTree = "<group>"; };
 		36A0C27F2954423700DFDD45 /* OnboardingMapDescribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMapDescribeView.swift; sourceTree = "<group>"; };
 		36BB028A29518BD300CF2816 /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
+		4C403B0F29C96796006FD46D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookView.swift; sourceTree = "<group>"; };
 		634BC63D2950369D0044B38B /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
 		634BC63F2950398C0044B38B /* DrawerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerListView.swift; sourceTree = "<group>"; };
 		634BC641295039D10044B38B /* DrawerScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerScheduleView.swift; sourceTree = "<group>"; };
@@ -164,11 +189,18 @@
 		635AE3AC29361A6D008A8452 /* DateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTask.swift; sourceTree = "<group>"; };
 		63660F4D2937216F00B70272 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		63660F512937573500B70272 /* Customtoggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customtoggle.swift; sourceTree = "<group>"; };
+		639D9A5329BA115A009D6EAA /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		63D2C122293836CD0011BC89 /* DayTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTask.swift; sourceTree = "<group>"; };
 		63D2C1272938379C0011BC89 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		63D2C1292938388A0011BC89 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		6FF334C82935F1CC007438B1 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		6FF334CA2935F1D9007438B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C068E0AD29BE04770070D71A /* FriendDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDrawerView.swift; sourceTree = "<group>"; };
+		C068E0B129BE1B720070D71A /* FriendFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFriendView.swift; sourceTree = "<group>"; };
+		C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDrawerListView.swift; sourceTree = "<group>"; };
+		C068E0BD29BE5B470070D71A /* FriendFlowerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFlowerMapView.swift; sourceTree = "<group>"; };
+		C068E0CB29C808D10070D71A /* FriendGuestBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendGuestBookView.swift; sourceTree = "<group>"; };
+		C068E0D129C8B0420070D71A /* FriendGuestBookWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendGuestBookWritingView.swift; sourceTree = "<group>"; };
 		C0B7045A29388F1200245ED7 /* Sakura.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sakura.json; sourceTree = "<group>"; };
 		C0C44ACA2950AAA8006FE8A4 /* PleaseLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseLoginView.swift; sourceTree = "<group>"; };
 		C0FA4348293623F4002D4473 /* Gilgaon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gilgaon.entitlements; sourceTree = "<group>"; };
@@ -210,6 +242,11 @@
 				634BC645295043110044B38B /* FriendsView.swift */,
 				16EE2F612951501700414279 /* AddFriendView.swift */,
 				16EE2F632951504600414279 /* FireStoreModel.swift */,
+				C068E0AD29BE04770070D71A /* FriendDrawerView.swift */,
+				C068E0CB29C808D10070D71A /* FriendGuestBookView.swift */,
+				C068E0D129C8B0420070D71A /* FriendGuestBookWritingView.swift */,
+				C068E0BB29BE47770070D71A /* FriendDrawerListView.swift */,
+				C068E0B129BE1B720070D71A /* FriendFriendView.swift */,
 				16EE2F652951508D00414279 /* FireStoreViewModel.swift */,
 				36BB028A29518BD300CF2816 /* WritingView.swift */,
 				16EE2F672951885A00414279 /* SearchUserView.swift */,
@@ -220,6 +257,13 @@
 				16A60C1929B0463400116569 /* FriendRequestCheckView.swift */,
 				16A60C1B29B04AFF00116569 /* FriendViewModel.swift */,
 				1683284629B6DE6500B3EF73 /* UserMapView.swift */,
+				3651BB8829B9AB620083F401 /* FlowerRecordView.swift */,
+				3651BB8A29B9D70A0083F401 /* CustomSheetModifier.swift */,
+				3651BB8C29B9DAD10083F401 /* CustomSheetView.swift */,
+				4C7CB7FD29BEBAAE00B69EC9 /* GuestBookView.swift */,
+				364F3BB229C6C1DE00FB2202 /* FriendSearchView.swift */,
+				364F3BB429C6CF5500FB2202 /* FriendSearchViewModel.swift */,
+				364F3BB629C6EB4200FB2202 /* FriendSearchCellView.swift */,
 			);
 			path = NewGilgaon;
 			sourceTree = "<group>";
@@ -275,6 +319,7 @@
 				3663C67029386372006880C9 /* LocationListView.swift */,
 				1683284229B6DCC800B3EF73 /* FlowerMapViewModel.swift */,
 				3663C67429386397006880C9 /* FlowerMapView.swift */,
+				C068E0BD29BE5B470070D71A /* FriendFlowerMapView.swift */,
 				3663C676293863B1006880C9 /* FlowerMapPreviewView.swift */,
 				3663C678293863C4006880C9 /* LocationsViewModel.swift */,
 				3663C67A293863D4006880C9 /* LocationDataService.swift */,
@@ -307,7 +352,7 @@
 				1642F0EC2938897E005A54EF /* Font */,
 				C0FA4348293623F4002D4473 /* Gilgaon.entitlements */,
 				6FF334CA2935F1D9007438B1 /* Info.plist */,
-				1683284829B6F9DB00B3EF73 /* GoogleService-Info.plist */,
+				169F903029CB19A70034A227 /* GoogleService-Info.plist */,
 				635AE3842935E932008A8452 /* GilgaonApp.swift */,
 				3663C66D2938631E006880C9 /* MapVIew */,
 				635AE3A729361971008A8452 /* View */,
@@ -354,16 +399,19 @@
 				16F69DB129387D320045CD91 /* OnBoard */,
 				635AE3942935E9DC008A8452 /* LoginView.swift */,
 				16D46F982935EC7E00BB9440 /* TestAPIView.swift */,
+				4C403B0F29C96796006FD46D /* SearchBarView.swift */,
 				635AE3962935E9E2008A8452 /* HomeView.swift */,
 				635AE3982935E9E7008A8452 /* TabBarView.swift */,
 				635AE39A2935E9F0008A8452 /* RecordView.swift */,
 				635AE39C2935E9F6008A8452 /* CalendarView.swift */,
 				16CFFE0529363BE900DC0B55 /* CalendarSelectView.swift */,
 				635AE3A229360793008A8452 /* CustomDataPicker.swift */,
+				639D9A5329BA115A009D6EAA /* CalendarViewModel.swift */,
 				63D2C1292938388A0011BC89 /* DayView.swift */,
 				C0B7045A29388F1200245ED7 /* Sakura.json */,
 				16FA82C7293906A6006129D3 /* PopupTest.swift */,
 				16FA82CC29391936006129D3 /* SettingPage */,
+				3651BB8E29BB493A0083F401 /* CalendarVViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -472,13 +520,13 @@
 			files = (
 				635AE38C2935E934008A8452 /* Preview Assets.xcassets in Resources */,
 				1642F0FD29388BC6005A54EF /* NotoSerifKR-Medium.otf in Resources */,
+				169F903129CB19A70034A227 /* GoogleService-Info.plist in Resources */,
 				1642F0FC29388BC6005A54EF /* NotoSerifKR-SemiBold.otf in Resources */,
 				1642F0FF29388BC6005A54EF /* NotoSerifKR-Bold.otf in Resources */,
 				16CA72952939BDE200D451F0 /* AppIcon.appiconset in Resources */,
 				6FF334C92935F1CD007438B1 /* Config.xcconfig in Resources */,
 				1642F0FA29388BC6005A54EF /* NotoSerifKR-Regular.otf in Resources */,
 				C0B7045B29388F1200245ED7 /* Sakura.json in Resources */,
-				1683284929B6F9DB00B3EF73 /* GoogleService-Info.plist in Resources */,
 				16FA82C6293903BC006129D3 /* InviteFriendLottie.json in Resources */,
 				1642F10029388BC6005A54EF /* NotoSerifKR-ExtraLight.otf in Resources */,
 				1642F0FB29388BC6005A54EF /* NotoSerifKR-Light.otf in Resources */,
@@ -498,15 +546,18 @@
 				634BC63E2950369D0044B38B /* DrawerView.swift in Sources */,
 				362DC67429389FD100507017 /* LocationFetcher.swift in Sources */,
 				161510BE29502BE600BA7FFE /* RegisterView.swift in Sources */,
+				C068E0AE29BE04770070D71A /* FriendDrawerView.swift in Sources */,
 				36A0C2802954423700DFDD45 /* OnboardingMapDescribeView.swift in Sources */,
 				16EE2F622951501700414279 /* AddFriendView.swift in Sources */,
 				3663C67D293881C1006880C9 /* SheetView.swift in Sources */,
 				16D46FA32935EC7F00BB9440 /* SearchModel.swift in Sources */,
 				369484C22952E1960030890A /* Util.swift in Sources */,
 				369CB73E293726E700C2E4BF /* JogakData.swift in Sources */,
+				364F3BB329C6C1DE00FB2202 /* FriendSearchView.swift in Sources */,
 				16EE2F662951508D00414279 /* FireStoreViewModel.swift in Sources */,
 				635AE3A529360AE8008A8452 /* DateVaule.swift in Sources */,
 				3663C679293863C4006880C9 /* LocationsViewModel.swift in Sources */,
+				C068E0D229C8B0420070D71A /* FriendGuestBookWritingView.swift in Sources */,
 				16CFFE0829363CEF00DC0B55 /* InviteFriendView.swift in Sources */,
 				16EE2F642951504600414279 /* FireStoreModel.swift in Sources */,
 				C0C44ACB2950AAA8006FE8A4 /* PleaseLoginView.swift in Sources */,
@@ -519,10 +570,16 @@
 				16F69DB729387E030045CD91 /* GilgaonRequestPermissonView.swift in Sources */,
 				16A60C1629B0448600116569 /* SegmentControllView.swift in Sources */,
 				16CFFE0629363BEA00DC0B55 /* CalendarSelectView.swift in Sources */,
+				639D9A5429BA115A009D6EAA /* CalendarViewModel.swift in Sources */,
+				C068E0CC29C808D10070D71A /* FriendGuestBookView.swift in Sources */,
 				635AE3952935E9DC008A8452 /* LoginView.swift in Sources */,
+				364F3BB729C6EB4200FB2202 /* FriendSearchCellView.swift in Sources */,
 				16F69DA7293845E80045CD91 /* LottieView.swift in Sources */,
+				4C403B1029C96796006FD46D /* SearchBarView.swift in Sources */,
+				3651BB8929B9AB620083F401 /* FlowerRecordView.swift in Sources */,
 				36BB028B29518BD300CF2816 /* WritingView.swift in Sources */,
 				3663C67129386372006880C9 /* LocationListView.swift in Sources */,
+				4C7CB7FE29BEBAAE00B69EC9 /* GuestBookView.swift in Sources */,
 				1683284529B6DD0E00B3EF73 /* DrawerDetailView.swift in Sources */,
 				635AE39B2935E9F0008A8452 /* RecordView.swift in Sources */,
 				63D2C1282938379C0011BC89 /* TaskViewModel.swift in Sources */,
@@ -531,18 +588,24 @@
 				63D2C123293836CD0011BC89 /* DayTask.swift in Sources */,
 				16F69DB629387E030045CD91 /* OnboardingTabView.swift in Sources */,
 				634BC646295043110044B38B /* FriendsView.swift in Sources */,
+				364F3BB529C6CF5500FB2202 /* FriendSearchViewModel.swift in Sources */,
 				16A60C1829B044DC00116569 /* FriendSettingView.swift in Sources */,
 				16D46FA42935EC7F00BB9440 /* SearchNetwork.swift in Sources */,
+				3651BB8F29BB493A0083F401 /* CalendarVViewModel.swift in Sources */,
 				16EE2F682951885A00414279 /* SearchUserView.swift in Sources */,
+				C068E0BC29BE47770070D71A /* FriendDrawerListView.swift in Sources */,
 				161510C7295036B300BA7FFE /* RegisterModel.swift in Sources */,
 				1683284329B6DCC800B3EF73 /* FlowerMapViewModel.swift in Sources */,
 				635AE3972935E9E2008A8452 /* HomeView.swift in Sources */,
+				3651BB8D29B9DAD10083F401 /* CustomSheetView.swift in Sources */,
 				635AE3992935E9E7008A8452 /* TabBarView.swift in Sources */,
+				C068E0B229BE1B720070D71A /* FriendFriendView.swift in Sources */,
 				16D46F9F2935EC7F00BB9440 /* TestAPIView.swift in Sources */,
 				635AE3932935E9D5008A8452 /* SplashView.swift in Sources */,
 				16A60C1A29B0463400116569 /* FriendRequestCheckView.swift in Sources */,
 				16F69DB529387E030045CD91 /* OnboardingDescribeView.swift in Sources */,
 				3663C67B293863D4006880C9 /* LocationDataService.swift in Sources */,
+				C068E0BE29BE5B470070D71A /* FriendFlowerMapView.swift in Sources */,
 				3663C67329386383006880C9 /* Location.swift in Sources */,
 				362A085129557CC500C582B4 /* AddMarkerFriendView.swift in Sources */,
 				63660F522937573500B70272 /* Customtoggle.swift in Sources */,
@@ -551,6 +614,7 @@
 				16D46FA12935EC7F00BB9440 /* SearchViewModel.swift in Sources */,
 				16FA82C8293906A6006129D3 /* PopupTest.swift in Sources */,
 				634BC64429503C000044B38B /* DrawerSettingView.swift in Sources */,
+				3651BB8B29B9D70A0083F401 /* CustomSheetModifier.swift in Sources */,
 				635AE3AD29361A6D008A8452 /* DateTask.swift in Sources */,
 				63D2C12A2938388A0011BC89 /* DayView.swift in Sources */,
 				634BC6402950398C0044B38B /* DrawerListView.swift in Sources */,
@@ -680,13 +744,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Gilgaon/Gilgaon.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Gilgaon/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gilgaon/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "내 위치 확인을 위해 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "내 위치 확인을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "내 위치 확인을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -701,6 +768,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zooey.Gilgaon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -713,13 +781,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Gilgaon/Gilgaon.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Gilgaon/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gilgaon/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "내 위치 확인을 위해 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "내 위치 확인을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "내 위치 확인을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -734,6 +805,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zooey.Gilgaon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

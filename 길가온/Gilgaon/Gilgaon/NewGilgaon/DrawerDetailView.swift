@@ -9,18 +9,19 @@ import SwiftUI
 
 struct DrawerDetailView: View {
     
+    @AppStorage("isRecording") var isRecordingStatus: Bool = UserDefaults.standard.bool(forKey: "isRecording")
     @EnvironmentObject var fireStoreViewModel: FireStoreViewModel
     @StateObject var friendViewModel = FriendViewModel()
-    @State private var middleView: MiddleView = .schedule
+    @State private var middleView: MiddleView = .guestBook
     @Binding var showMenu: Bool
     // 프로필 편집 모드
     @State private var photoEditing: Bool = false
     @State private var showPicker: Bool = false
     @State private var profileImage: UIImage? = nil
     @State var userProfile: FireStoreModel?
+    @State var selectRecording = false
+    var middleViewArray: [MiddleView] = [.guestBook, .list]
 
-    var middleViewArray: [MiddleView] = [.schedule, .list]
-    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -99,8 +100,6 @@ struct DrawerDetailView: View {
                                             // 선택 완료 버튼
                                             Button {
                                                 photoEditing = false
-                                                
-                                                
                                                 let userProfile = FireStoreModel(id: fireStoreViewModel.info?.id ?? "", nickName: fireStoreViewModel.userNickName, userPhoto: fireStoreViewModel.info?.userPhoto ?? "", userEmail: fireStoreViewModel.info?.userEmail ?? "")
                                                 Task{
                                                     await fireStoreViewModel.uploadImageToStorage(userImage: profileImage, user: userProfile)
@@ -126,7 +125,7 @@ struct DrawerDetailView: View {
                             }
                             .offset(y: 70)
                         }
- 
+                        
                     }
                     //                        .offset(x: -65)
                     Spacer()
@@ -135,14 +134,23 @@ struct DrawerDetailView: View {
                         userNickNameText // fireStoreViewModel.userNickName
                         
                         NavigationLink {
-//                            AddFriendView(friendViewModel: friendViewModel)
+                            //                            AddFriendView(friendViewModel: friendViewModel)
                             FriendSettingView()
                         } label: {
-                            
                             Text("\(fireStoreViewModel.myFriendArray.count)명의 친구")
                                 .font(.custom("NotoSerifKR-Regular",size:16))
                             
+                        }.padding(.bottom, 5)
+                        
+                        HStack{
+                                Image(systemName: "record.circle")
+                                    .foregroundColor(isRecordingStatus ? .red : .gray)
+                                Text(isRecordingStatus ? "길가ON" : "길가OFF")
+                                    .font(.custom("NotoSerifKR-Regular",size:14))
+                                    .foregroundColor(isRecordingStatus ? Color("Red") : .gray)
                         }
+
+                        
                     }
                     Spacer()
                 }
@@ -172,8 +180,8 @@ struct DrawerDetailView: View {
                 }
                 
                 switch middleView {
-                case .schedule:
-                    DrawerScheduleView()
+                case .guestBook:
+                    GuestBookView()
                 case .list:
                     DrawerListView()
                 }
@@ -181,6 +189,7 @@ struct DrawerDetailView: View {
             .fullScreenCover(isPresented: $showPicker) {
                 ImagePicker(image: $profileImage)
             }
+
         }
     }
 }
@@ -203,6 +212,8 @@ extension DrawerDetailView {
             .bold()
             .padding(.bottom, 10)
     }
+    
+
 }
 
 struct DrawerDetailView_Previews: PreviewProvider {

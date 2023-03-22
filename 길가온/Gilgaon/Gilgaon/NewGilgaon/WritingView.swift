@@ -9,8 +9,8 @@ import SwiftUI
 
 
 struct WritingView: View {
-    @ObservedObject var firestoreViewModel:FireStoreViewModel
-    
+    @EnvironmentObject var firestoreViewModel:FireStoreViewModel
+    @AppStorage("recordingKey") var recordingKey = UserDefaults.standard.string(forKey: "recordingKey") ?? ""
     @EnvironmentObject var viewModel: SearchViewModel
     
     @State private var travelName2: String = ""
@@ -168,6 +168,7 @@ struct WritingView: View {
                 }
             }
         }
+        .onAppear{ firestoreViewModel.nowCalendarId = recordingKey }
         .fullScreenCover(isPresented: $shouldShowImagePicker) {
             ImagePicker(image: $image)
         }
@@ -211,6 +212,8 @@ struct MyPath3: Shape {
 
 struct WritingView_Previews: PreviewProvider {
     static var previews: some View {
-        WritingView(firestoreViewModel: FireStoreViewModel())
+        WritingView()
+            .environmentObject(FireStoreViewModel())
+            .environmentObject(SearchViewModel())
     }
 }

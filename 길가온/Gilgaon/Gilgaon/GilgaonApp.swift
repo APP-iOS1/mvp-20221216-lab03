@@ -24,15 +24,16 @@ struct GilgaonApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 //    @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
-    
+    @StateObject var locationFetcher = LocationFetcher()
     var body: some Scene {
         WindowGroup {
             SplashView()
                 .environmentObject(RegisterModel())
-                .environmentObject(LocationsViewModel())
+//                .environmentObject(LocationsViewModel())
                 .environmentObject(SearchViewModel())
-                .environmentObject(CalendarViewModel())
+//                .environmentObject(CalendarViewModel())
                 .environmentObject(FireStoreViewModel())
+                .environmentObject(locationFetcher)
         }
     }
 }

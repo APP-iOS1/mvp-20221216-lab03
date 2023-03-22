@@ -115,6 +115,15 @@ struct LoginView: View {
 //            .navigationBarHidden(true)
         }
         .accentColor(Color("Red"))
+        .onAppear {
+            print("== 로그인 뷰 ==")
+            registerModel.listenToAuthState()
+            if registerModel.currentUser != nil {
+                Task{
+                    registerModel.currentUserProfile = try await registerModel.fetchUserInfo(_: registerModel.currentUser!.uid)
+                }
+            }
+        }
     }
     
 }
