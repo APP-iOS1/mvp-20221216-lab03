@@ -24,8 +24,20 @@ struct UserMapView: UIViewRepresentable {
         mapView.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: "custom")
         setSubscriber(mapView)
         
-        mapView.showsUserLocation = true
-        mapView.setUserTrackingMode(.follow, animated: true)
+        switch locationFetcher.manager.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("사용자가 위치 사용하겠다고 알림")
+            mapView.showsUserLocation = true
+            mapView.setUserTrackingMode(.follow, animated: true)
+        case .notDetermined:
+            //처음 상태는 notDetermined
+            print("notDetermined")
+        case .restricted:
+            print("restricted")
+        case .denied:
+            print("denied")
+
+        }
         
         if CLLocationCoordinate2DIsValid(startCoordinate) {
             let region = MKCoordinateRegion(center: startCoordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
@@ -33,14 +45,19 @@ struct UserMapView: UIViewRepresentable {
         }
 
         
-        locationFetcher.$points.sink { _ in
-        } receiveValue: { data in
-            let dt = MKPolyline(coordinates: data, count: data.count)
-            print(data)
-            mapView.addOverlay(dt)
-            mapView.setRegion(MKCoordinateRegion(dt.boundingMapRect), animated: true)
-
-        }
+//        locationFetcher.$points.sink { _ in
+//        } receiveValue: { data in
+//            let dt = MKPolyline(coordinates: data, count: data.count)
+//            print(data)
+//            mapView.addOverlay(dt)
+//            mapView.setRegion(MKCoordinateRegion(dt.boundingMapRect), animated: true)
+//        }
+        
+        let data = locationFetcher.testPoint.randomElement()!
+        print("\(data)")
+        let dt = MKPolyline(coordinates: data, count: data.count)
+        mapView.addOverlay(dt)
+        mapView.setRegion(MKCoordinateRegion(dt.boundingMapRect), animated: true)
 
         
         return mapView
