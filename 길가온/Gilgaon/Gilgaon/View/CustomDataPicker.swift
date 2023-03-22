@@ -15,6 +15,7 @@ struct CustomDataPicker: View {
     // @StateObject var fireStoreModel: FireStoreViewModel = FireStoreViewModel()
      @StateObject var calendarViewModel: CalendarViewModel = CalendarViewModel()
 
+
     @Binding var calID: [String]
     @State var currentMonth: Int = 0
     
@@ -48,13 +49,6 @@ struct CustomDataPicker: View {
                                 }
                                 
                             }
-
-//
-//                            VStack() {
-//                                Text(extraDate()[0])
-//                                    .font(.custom("NotoSerifKR-SemiBold", size: 15))
-//                                    .foregroundColor(Color("DarkGray"))
-//                            }
                             
                             Spacer()
                             
@@ -144,18 +138,23 @@ struct CustomDataPicker: View {
                             CalendarSelectView(calendarViewModel: calendarViewModel)
                                 .onAppear {
                                     Task {
-                                        calendarViewModel.mapID = dateTask.id
+                                        calendarViewModel.documentID = dateTask.id
                                         await calendarViewModel.fetchMap()
-                                        calendarViewModel.mapID = ""
+                                        await calendarViewModel.fetchCarendar()
+                                        await calendarViewModel.fetchSharedFriendImage()
+                                        calendarViewModel.documentID = ""
                                     }
                                 }
                                 .onChange(of: dateTask.id) { newValue in
                                     Task {
                                         calendarViewModel.mapDataList = []
+                                        calendarViewModel.calendarList = []
+                                        calendarViewModel.sharedFriend = []
                                         
-                                        calendarViewModel.mapID = newValue
+                                        calendarViewModel.documentID = newValue
                                         await calendarViewModel.fetchMap()
-                                        
+                                        await calendarViewModel.fetchCarendar()
+                                        await calendarViewModel.fetchSharedFriendImage()
                                     }
                                 }
                         }

@@ -1,13 +1,13 @@
 //
-//  GuestBookWritingView.swift
+//  FriendGuestBookWritingView.swift
 //  Gilgaon
 //
-//  Created by 정소희 on 2023/03/13.
+//  Created by 전준수 on 2023/03/21.
 //
 
 import SwiftUI
-
-struct GuestBookWritingView: View {
+import FirebaseAuth
+struct FriendGuestBookWritingView: View {
     
     @Binding var guestBookFullScreenToggle: Bool
     @State private var cancelToggle: Bool = false //취소버튼
@@ -15,6 +15,9 @@ struct GuestBookWritingView: View {
     @State private var showingAlert = false
     @State private var guestBookTextField: String = ""
     @State private var emptyTextField: String = "방명록을 작성해주세요!"
+    @State var friendID: String
+    @StateObject private var friendViewModel = FriendViewModel()
+    @EnvironmentObject var fireStoreViewModel: FireStoreViewModel
     
     var body: some View {
         GeometryReader { geometry in
@@ -52,12 +55,7 @@ struct GuestBookWritingView: View {
                         Text("방명록을 작성해주세요!")
                             .padding(-10)
                             .font(.custom("NotoSerifKR-Regular",size: 15))
-//                        TextField("방명록을 작성해주세요!", text: $guestBookTextField, axis: .vertical)
-//                            .padding()
-//                            .background(Color.white)
-//                            .cornerRadius(15)
-//                            .padding()
-//                            .focused($focusField, equals: .guestBook)
+
                             TextEditor(text: $guestBookTextField)
                                 .cornerRadius(15)
                                 .padding()
@@ -73,7 +71,7 @@ struct GuestBookWritingView: View {
         }
     }
 }
-extension GuestBookWritingView {
+extension FriendGuestBookWritingView {
     
     private var cancelButton: some View {
         Button(action: {
@@ -93,6 +91,13 @@ extension GuestBookWritingView {
             alertType = .registration //등록
             cancelToggle = false
             showingAlert = true
+            
+            let createdAt = Date().timeIntervalSince1970
+            let friendGuestBookList = friendViewModel.friendGuestBookList
+            let friendGuestBook = GuestBookModel(id: UUID().uuidString, to: friendID, from: Auth.auth().currentUser?.uid ?? "",fromNickName: fireStoreViewModel.userNickName,fromPhoto: fireStoreViewModel.profileUrlString ?? "", board: guestBookTextField, date: createdAt, report: false
+            )
+            
+            friendViewModel.addFriendGuestBook(guestBook: friendGuestBook, friendID: friendID)
         }) {
             Capsule()
                 .fill(Color("Pink").opacity(0.85))
@@ -109,8 +114,8 @@ extension View {
     }
 }
 
-struct GuestBookWritingView_Previews: PreviewProvider {
-    static var previews: some View {
-        GuestBookWritingView(guestBookFullScreenToggle: .constant(true))
-    }
-}
+//struct FriendGuestBookWritingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FriendGuestBookWritingView(guestBookFullScreenToggle: .constant(true))
+//    }
+//}

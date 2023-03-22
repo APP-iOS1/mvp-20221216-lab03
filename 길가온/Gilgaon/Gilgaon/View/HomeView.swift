@@ -23,6 +23,9 @@ struct HomeView: View {
             TabBarView(selectedTabBar: $selectedTabBar)
                 .frame(height: 30)
         }
+        .onAppear {
+            print("==  HomeView  ==")
+        }
         .navigationBarBackButtonHidden(true)
         .accentColor(Color("Red"))
         .fullScreenCover(isPresented: $isFirstLaunching) {

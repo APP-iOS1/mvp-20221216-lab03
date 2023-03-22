@@ -19,6 +19,9 @@ class FriendViewModel: ObservableObject {
     @Published var friendCalendarList:[DayCalendarModel] = []
     @Published var friendCalendarListSharedFriend: [FriendModel] = []
     @Published var markerList: [MarkerModel] = []
+    @Published var friendGuestBookList:[GuestBookModel] = []
+
+    
     let database = Firestore.firestore()
     //상대방이 추가할 때 내 아이디에 친구의 uid를 담아준다.
     
@@ -270,4 +273,66 @@ class FriendViewModel: ObservableObject {
         
         
     }
+    // 친구 방명록 작성
+    func addFriendGuestBook(guestBook: GuestBookModel, friendID: String) {
+        database
+            .collection("User")
+            .document(friendID)
+            .collection("GuestBook")
+            .document(guestBook.id)
+            .setData([
+                "id": guestBook.id,
+                "to": guestBook.to,
+                "from": guestBook.from,
+                "fromNickName": guestBook.fromNickName,
+                "fromPhoto": guestBook.fromPhoto,
+                "board": guestBook.board,
+                "date": guestBook.date,
+                "report": guestBook.report
+            ])
+        friendGuestBookList.append(guestBook)
+    }
+    
+    // 친구 방명록 삭제
+    func deleteFriendGuestBook(guestBook: GuestBookModel, friendID: String) {
+        database
+            .collection("User")
+            .document(friendID)
+            .collection("GuestBook")
+            .document(guestBook.id)
+            .delete()
+    }
+    
+
+    // 친구 방명록 불러오기
+    func fetchFriendGuestBook(friendID: String) async{
+        database
+            .collection("User")
+            .document(friendID)
+            .collection("GuestBook")
+            .order(by: "date", descending: true)
+            .getDocuments { (snapshot, error) in
+                self.friendGuestBookList.removeAll()
+                if let snapshot{
+                    for document in snapshot.documents{
+                        let id = document.documentID
+                        let docData = document.data()
+                        let to = docData["to"] as? String ?? ""
+                        let from = docData["from"] as? String ?? ""
+                        let fromNickName = docData["fromNickName"] as? String ?? ""
+                        let fromPhoto = docData["fromPhoto"] as? String ?? ""
+                        let board = docData["board"] as? String ?? ""
+                        let date = docData["date"] as? Double ?? 0.0
+                        let report = docData["report"] as? Bool ?? false
+                        let friendGuestBookData = GuestBookModel(id: id, to: to, from: from, fromNickName: fromNickName, fromPhoto: fromPhoto, board: board, date: date, report: report)
+                        print(#function)
+                        self.friendGuestBookList.append(friendGuestBookData)
+                    }
+                }
+            }
+    }
+
+
+
+    
 }

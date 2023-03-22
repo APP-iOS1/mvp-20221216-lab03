@@ -29,7 +29,7 @@ struct GilgaonApp: App {
         WindowGroup {
             SplashView()
                 .environmentObject(RegisterModel())
-                .environmentObject(LocationsViewModel())
+//                .environmentObject(LocationsViewModel())
                 .environmentObject(SearchViewModel())
 //                .environmentObject(CalendarViewModel())
                 .environmentObject(FireStoreViewModel())

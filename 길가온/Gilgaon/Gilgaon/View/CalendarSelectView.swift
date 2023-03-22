@@ -11,6 +11,7 @@ struct CalendarSelectView: View {
     
     @ObservedObject var calendarViewModel: CalendarViewModel
     
+    
     var body: some View {
         
         ZStack {
@@ -18,40 +19,86 @@ struct CalendarSelectView: View {
                 .ignoresSafeArea()
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(calendarViewModel.mapDataList, id: \.self) { item in
-                        VStack {
-                            HStack {
-                                Rectangle()
-                                    .frame(height: 1)
-                                
-                                Circle()
-                                    .frame(width: 15, height: 15)
-                                    .background(
-                                        Circle()
-                                            .stroke(lineWidth: 1)
-                                            .padding(-3)
-                                    )
-                                
-                                Rectangle()
-                                    .frame(height: 1)
-                            }
+                VStack {
+                    ForEach(calendarViewModel.calendarList, id: \.self) { item in
+                        HStack {
+                            Text(item.title)
+                                .font(.custom("NotoSerifKR-Bold", size: 15))
                             
-                            VStack {
-                                Text(item.createdDate)
-                                Text(item.locationName)
-                            }
-                            .padding()
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color("Pink"), lineWidth: 1.5)
+                            HStack(spacing: -10) {
+                                ForEach(calendarViewModel.sharedFriend, id: \.self) { user in
+                                    if let url = user.userPhoto,
+                                       let imageUrl = URL(string: url) {
+                                        AsyncImage(url: imageUrl) { image in
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 30, height: 30)
+                                                .clipShape(Circle())
+                                                .background(
+                                                    Circle()
+                                                        .stroke(Color("DarkGray"), lineWidth: 2)
+                                                )
+                                        } placeholder: {
+                                            Image(systemName: "person.fill")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 30, height: 30)
+                                                .clipShape(Circle())
+                                                .background(
+                                                    Circle()
+                                                        .stroke(Color("DarkGray"), lineWidth: 2)
+                                                )
+                                        }
+                                    } else{
+                                        Image(systemName: "person.fill")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 30, height: 30)
+                                            .clipShape(Circle())
+                                            .background(
+                                                Circle()
+                                                    .stroke(Color("DarkGray"), lineWidth: 2)
+                                            )
+                                    }
+                                }
                             }
                         }
+                        .padding()
                     }
-                    .foregroundColor(Color("DarkGray"))
-                    .font(.custom("NotoSerifKR-Regular", size: 18))
+                    
+                    HStack {
+                        ForEach(calendarViewModel.mapDataList, id: \.self) { item in
+                            VStack {
+                                HStack {
+                                    Rectangle()
+                                        .frame(height: 1)
+                                    
+                                    Image("flowerPink")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                    
+                                    Rectangle()
+                                        .frame(height: 1)
+                                }
+                                .foregroundColor(.clear)
+                                
+                                VStack {
+                                    Text(item.calendarDate)
+                                    Text(item.locationName)
+                                }
+                                .padding()
+                                .frame(minWidth: 180)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color("Pink"), lineWidth: 1.5)
+                                }
+                            }
+                        }
+                        .font(.custom("NotoSerifKR-Regular", size: 18))
+                    }
+                    .padding()
                 }
-                .padding()
             }
         }
     }
