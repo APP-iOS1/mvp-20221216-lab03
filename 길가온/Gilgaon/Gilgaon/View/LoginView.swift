@@ -10,7 +10,7 @@ struct LoginView: View {
     
     var body: some View {
         
-      //  NavigationStack {
+        GeometryReader { g in
             ZStack {
                 
                 Color("White")
@@ -18,13 +18,13 @@ struct LoginView: View {
                 
                 LottieView2(filename: "Sakura")
                     .ignoresSafeArea()
-                    .offset(x:200,y:-270)
-                    .frame(width: 2000,height: 1300)
+                    .offset(x: -g.size.width / 0.47,y: -g.size.height / 2.2)
+                    .frame(width: g.size.width * 5,height: g.size.height * 2)
                     .opacity(0.6)
            
                     MyPath2()
                         .stroke(Color("Pink"))
-                        .offset(x: 800, y: 250)
+                       // .offset(x: 800, y: 250)
       
                 VStack {
                     
@@ -38,7 +38,7 @@ struct LoginView: View {
                         }
                         .padding()
                         .padding(.leading, 8)
-                        .offset(x: 800, y: 13)
+                        .offset(x: g.size.width / 13,y: -g.size.height / 2.7)
                         
                         HStack {
                             Image(systemName: "lock")
@@ -48,66 +48,70 @@ struct LoginView: View {
                         .font(.custom("NotoSerifKR-Regular",size:16))
                         .padding()
                         .padding(.leading, 8)
-                        .offset(x: 800, y: 13)
+                        .offset(x: g.size.width / 13,y: -g.size.height / 2.7)
                         
                         
-                        Button {
-                            registerModel.login(email: email, password: password)
-                        } label: {
-                            
-                            Text("로그인")
-                                .foregroundColor(Color("DarkGray"))
-                                .font(.custom("NotoSerifKR-Bold",size:20))
-                                .bold()
-                        }
-                        .alert("계정 확인", isPresented: $registerModel.isError, actions: {
-                            
-                            Button("확인",role: .cancel,action: {
-                            })
-                        }, message: {
-                            Text("아이디 및 비밀번호를 확인해보세요.")
-                                .font(.custom("NotoSerifKR-Regular",size:16))
-                        })
-
-                        NavigationLink {
-                            RegisterView()
-                        } label: {
-                            
-                            Text("회원가입")
-                                .foregroundColor(Color("DarkGray"))
-                                .font(.custom("NotoSerifKR-Bold",size:20))
-                                .bold()
-                        }
-                        
-                       Text("OR")
-                            .foregroundColor(Color("DarkGray"))
-                            .font(.custom("NotoSerifKR-Medium",size:16))
-                    }
-                    .textInputAutocapitalization(.never)
                     
-                    
-                    SignInWithAppleButton { request in
-                        registerModel.nonce = randomNonceString()
-                        request.requestedScopes = [.fullName, .email]
-                        request.nonce = sha256(registerModel.nonce)
-                    } onCompletion: { (result) in
-                        switch result {
-                        case .success(let user):
-                            print("success")
-                            guard let credential = user.credential as?
-                                    ASAuthorizationAppleIDCredential else {
-                                print("error with firebase")
-                                return
+                            Button {
+                                registerModel.login(email: email, password: password)
+                            } label: {
+                                
+                                Text("로그인")
+                                    .foregroundColor(Color("DarkGray"))
+                                    .font(.custom("NotoSerifKR-Bold",size:20))
+                                    .bold()
+                                 
                             }
-                            Task { await registerModel.appleAuthenticate(credential: credential) }
-                        case.failure(let error):
-                            print(error.localizedDescription)
+                            .offset(x: -g.size.width / 0.5,y: -g.size.height / 2.7)
+                            .alert("계정 확인", isPresented: $registerModel.isError, actions: {
+                                
+                                Button("확인",role: .cancel,action: {
+                                })
+                            }, message: {
+                                Text("아이디 및 비밀번호를 확인해보세요.")
+                                    .font(.custom("NotoSerifKR-Regular",size:16))
+                            })
+                            
+                            NavigationLink {
+                                RegisterView()
+                            } label: {
+                                
+                                Text("회원가입")
+                                    .foregroundColor(Color("DarkGray"))
+                                    .font(.custom("NotoSerifKR-Bold",size:20))
+                                    .bold()
+                            }
+                            .offset(x: -g.size.width / 0.5,y: -g.size.height / 2.7)
+                            
+                            Text("OR")
+                                .foregroundColor(Color("DarkGray"))
+                                .font(.custom("NotoSerifKR-Medium",size:16))
+                                .offset(x: -g.size.width / 0.5,y: -g.size.height / 2.7)
                         }
-                    }
-
-                    .frame(width: 300, height: 45)
-
-                
+                        .textInputAutocapitalization(.never)
+                        
+                        
+                        SignInWithAppleButton { request in
+                            registerModel.nonce = randomNonceString()
+                            request.requestedScopes = [.fullName, .email]
+                            request.nonce = sha256(registerModel.nonce)
+                        } onCompletion: { (result) in
+                            switch result {
+                            case .success(let user):
+                                print("success")
+                                guard let credential = user.credential as?
+                                        ASAuthorizationAppleIDCredential else {
+                                    print("error with firebase")
+                                    return
+                                }
+                                Task { await registerModel.appleAuthenticate(credential: credential) }
+                            case.failure(let error):
+                                print(error.localizedDescription)
+                            }
+                        }
+                        .offset(x: -g.size.width / 0.5,y: -g.size.height / 2.7)
+                        .frame(width: g.size.width / 1.31, height: g.size.height / 16.8666)
+                 
                     
                 }
                
@@ -124,6 +128,8 @@ struct LoginView: View {
                 }
             }
         }
+        }
+           
     }
     
 }
@@ -131,6 +137,7 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+            .environmentObject(RegisterModel())
     }
 }
 
