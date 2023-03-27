@@ -66,7 +66,7 @@ struct RegisterView: View {
                 case RegisterType.Email:
                     VStack(spacing: 13) {
                         
-                        Text("이메일 회원가입")
+                        Text("회원가입")
                             .font(.custom("NotoSerifKR-Bold", size: 30))
                             .foregroundColor(Color("DarkGray"))
                         
@@ -205,7 +205,7 @@ struct RegisterView: View {
                 case RegisterType.Apple:
                     VStack(spacing: 13) {
                         
-                        Text("애플 회원가입")
+                        Text("회원가입")
                             .font(.custom("NotoSerifKR-Bold", size: 30))
                             .foregroundColor(Color("DarkGray"))
                         

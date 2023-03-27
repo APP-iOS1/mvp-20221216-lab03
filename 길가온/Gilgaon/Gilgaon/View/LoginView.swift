@@ -16,42 +16,55 @@ struct LoginView: View {
                 Color("White")
                     .ignoresSafeArea()
                 
-                LottieView2(filename: "Sakura")
-                    .ignoresSafeArea()
-                    .offset(x: -g.size.width / 0.47,y: -g.size.height / 2.2)
-                    .frame(width: g.size.width * 5,height: g.size.height * 2)
-                    .opacity(0.6)
+                Lottie2()
+                    
            
-                    MyPath2()
-                        .stroke(Color("Pink"))
-                       // .offset(x: 800, y: 250)
+               
       
-                VStack {
-                    
-                    VStack(spacing: 27) {
+
+                    VStack {
                         
-                        HStack {
-                            Image(systemName: "envelope")
-                                .foregroundColor(Color("DarkGray"))
-                            TextField("이메일", text: $email)
-                                .font(.custom("NotoSerifKR-Regular",size:16))
+            Spacer()
+                        
+                        VStack {
+                            ZStack {
+                                Image("Path")
+                                    .resizable()
+                                    .frame(width: g.size.width / 1.4, height: g.size.width / 8)
+                                
+                                HStack {
+                                    Image(systemName: "envelope")
+                                        .foregroundColor(Color("DarkGray"))
+                                    TextField("이메일", text: $email)
+                                        .font(.custom("NotoSerifKR-Regular",size:16))
+                                }
+                            }
+                            .frame(width: g.size.width / 1.4, height: g.size.width / 5)
+                         
+                            
+                      
+                            
+                            ZStack {
+                                Image("Path")
+                                    .resizable()
+                                    .frame(width: g.size.width / 1.4, height: g.size.width / 8)
+                                
+                                HStack {
+                                    Image(systemName: "lock")
+                                        .foregroundColor(Color("DarkGray"))
+                                    SecureField("비밀번호", text: $password)
+                                        .font(.custom("NotoSerifKR-Regular",size:16))
+                                }
+                            }
+                            .frame(width: g.size.width / 1.4, height: g.size.width / 5)
+                          
+                           
                         }
-                        .padding()
-                        .padding(.leading, 8)
-                        .offset(x: g.size.width / 13,y: -g.size.height / 2.7)
-                        
-                        HStack {
-                            Image(systemName: "lock")
-                                .foregroundColor(Color("DarkGray"))
-                            SecureField("비밀번호", text: $password)
-                        }
-                        .font(.custom("NotoSerifKR-Regular",size:16))
-                        .padding()
-                        .padding(.leading, 8)
-                        .offset(x: g.size.width / 13,y: -g.size.height / 2.7)
-                        
+                        .frame(width: g.size.width / 1.4, height: g.size.width / 3)
+                
                         
                     
+                        VStack {
                             Button {
                                 registerModel.login(email: email, password: password)
                             } label: {
@@ -60,9 +73,8 @@ struct LoginView: View {
                                     .foregroundColor(Color("DarkGray"))
                                     .font(.custom("NotoSerifKR-Bold",size:20))
                                     .bold()
-                                 
+                                
                             }
-                            .offset(x: -g.size.width / 0.5,y: -g.size.height / 2.7)
                             .alert("계정 확인", isPresented: $registerModel.isError, actions: {
                                 
                                 Button("확인",role: .cancel,action: {
@@ -71,6 +83,8 @@ struct LoginView: View {
                                 Text("아이디 및 비밀번호를 확인해보세요.")
                                     .font(.custom("NotoSerifKR-Regular",size:16))
                             })
+                            .frame(width: g.size.width / 1.4, height: g.size.width / 9)
+               
                             
                             NavigationLink {
                                 RegisterView()
@@ -81,39 +95,50 @@ struct LoginView: View {
                                     .font(.custom("NotoSerifKR-Bold",size:20))
                                     .bold()
                             }
-                            .offset(x: -g.size.width / 0.5,y: -g.size.height / 2.7)
+                            .frame(width: g.size.width / 1.4, height: g.size.width / 9)
+                            
+                  
                             
                             Text("OR")
                                 .foregroundColor(Color("DarkGray"))
                                 .font(.custom("NotoSerifKR-Medium",size:16))
-                                .offset(x: -g.size.width / 0.5,y: -g.size.height / 2.7)
+                                .frame(width: g.size.width / 1.4, height: g.size.width / 9)
+                         
+                        }
+                        .frame(width: g.size.width / 1.4, height: g.size.width / 2)
+                        
+            
+                            
+                        VStack {
+                            SignInWithAppleButton { request in
+                                registerModel.nonce = randomNonceString()
+                                request.requestedScopes = [.fullName, .email]
+                                request.nonce = sha256(registerModel.nonce)
+                            } onCompletion: { (result) in
+                                switch result {
+                                case .success(let user):
+                                    print("success")
+                                    guard let credential = user.credential as?
+                                            ASAuthorizationAppleIDCredential else {
+                                        print("error with firebase")
+                                        return
+                                    }
+                                    Task { await registerModel.appleAuthenticate(credential: credential) }
+                                case.failure(let error):
+                                    print(error.localizedDescription)
+                                }
+                            }
+                            .frame(width: g.size.width / 1.31, height: g.size.height / 16.8666)
+                        }
+                        .frame(width: g.size.width / 1.4, height: g.size.width / 12)
+                        
+                        Spacer()
+                        
+         
+                          
                         }
                         .textInputAutocapitalization(.never)
                         
-                        
-                        SignInWithAppleButton { request in
-                            registerModel.nonce = randomNonceString()
-                            request.requestedScopes = [.fullName, .email]
-                            request.nonce = sha256(registerModel.nonce)
-                        } onCompletion: { (result) in
-                            switch result {
-                            case .success(let user):
-                                print("success")
-                                guard let credential = user.credential as?
-                                        ASAuthorizationAppleIDCredential else {
-                                    print("error with firebase")
-                                    return
-                                }
-                                Task { await registerModel.appleAuthenticate(credential: credential) }
-                            case.failure(let error):
-                                print(error.localizedDescription)
-                            }
-                        }
-                        .offset(x: -g.size.width / 0.5,y: -g.size.height / 2.7)
-                        .frame(width: g.size.width / 1.31, height: g.size.height / 16.8666)
-                 
-                    
-                }
                
 //            }
 //            .navigationBarHidden(true)
@@ -141,6 +166,18 @@ struct LoginView_Previews: PreviewProvider {
     }
 }
 
+
+struct Lottie2: View {
+    var body: some View {
+        GeometryReader { g in
+            LottieView2(filename: "Sakura")
+                .ignoresSafeArea()
+                .offset(x: -g.size.width / 0.47,y: -g.size.height / 2.2)
+                .frame(width: g.size.width * 5,height: g.size.height * 2)
+                .opacity(0.6)
+        }
+    }
+}
 
 struct MyPath2: Shape {
     
