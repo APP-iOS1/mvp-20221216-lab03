@@ -18,47 +18,50 @@ struct FriendSearchView: View {
     
     
     var body: some View {
-        ZStack{
-            Color("White")
-                .ignoresSafeArea()
-            
-            VStack{
-                HStack{
-                    Button {
-                        friendSearchViewModel.tempFriendList = []
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .foregroundColor(Color("Pink"))
+        GeometryReader{ g in
+            ZStack{
+                Color("White")
+                    .ignoresSafeArea()
+                
+                VStack{
+                    HStack{
+                        Button {
+                            friendSearchViewModel.tempFriendList = []
+                            dismiss()
+                        } label: {
+                            Image(systemName: "xmark")
+                                .foregroundColor(Color("Pink"))
+                        }
+                        Spacer()
+                        Text("기록친구 추가")
+                        Spacer()
+                        Button {
+                            friendList = friendSearchViewModel.tempFriendList
+                            dismiss()
+                        } label: {
+                            Text("확인")
+                                .foregroundColor(Color("Pink"))
+                        }
                     }
-                    Spacer()
-                    Text("기록친구 추가")
-                    Spacer()
-                    Button {
-                        friendList = friendSearchViewModel.tempFriendList
-                        dismiss()
-                    } label: {
-                        Text("확인")
-                            .foregroundColor(Color("Pink"))
+                    .padding()
+                    ZStack{
+                        TextField("친구 검색", text: $friendSearchViewModel.searchString)
+                            .padding([.leading, .trailing], g.size.width/12)
                     }
-                }
-                .padding()
-                ZStack{
-                    TextField("친구 검색", text: $searchString)
-                        .padding([.leading, .trailing], 10)
-                }
-                ScrollView{
-                    ForEach(fireStoreViewModel.myFriendArray, id:\.self){ friend in
-                        FriendSearchCellView(friendsearchViewModel: friendSearchViewModel, friend: friend)
+                    ScrollView{
+                        ForEach(friendSearchViewModel.recordFriendList, id:\.self){ friend in
+                            FriendSearchCellView(friendsearchViewModel: friendSearchViewModel, friend: friend)
+                                .padding(g.size.width/16)
+                        }
                     }
+                    
                 }
-                .padding()
+                
             }
-            
         }
         .onAppear{
             friendSearchViewModel.tempFriendList = friendList
-            fireStoreViewModel.fetchFriend()
+            Task{ friendSearchViewModel.recordFriendList = await friendSearchViewModel.fetchFriendList() }
         }
         
         
@@ -88,7 +91,7 @@ extension FriendSearchView{
                     .aspectRatio(contentMode: .fit)
                     .padding(.trailing, 10)
             }
-          
+            
             Text("\(friend.nickName)")
             Spacer()
             
@@ -100,7 +103,7 @@ extension FriendSearchView{
             }
         }
     }
-
+    
 }
 //struct FriendSearchView_Previews: PreviewProvider {
 //    static var previews: some View {
