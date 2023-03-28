@@ -87,13 +87,11 @@ struct AddFriendView: View {
                     .background(Color("White"))
                     
                 }
+                .navigationTitle("친구목록")
                 .onAppear {
                     fireStoreViewModel.fetchFriend()
                 }
-            }
-            .navigationTitle("친구목록")
-            .toolbar {
-                ToolbarItem {
+                .toolbar {
                     NavigationLink {
                         SearchUserView(firestore: fireStoreViewModel, friendViewModel: friendViewModel)
                     } label: {
@@ -101,9 +99,12 @@ struct AddFriendView: View {
                             .font(.custom("NotoSerifKR-Regular",size:26))
                             .bold()
                     }
-                }
-   
-        }
+            }
+            }
+
+            
+     
+            
         } else {
             ZStack {
                 Color("White")
@@ -113,16 +114,13 @@ struct AddFriendView: View {
                 fireStoreViewModel.fetchFriend()
             }
             .toolbar {
-                ToolbarItem {
-                    NavigationLink {
-                        SearchUserView(firestore: fireStoreViewModel, friendViewModel: friendViewModel)
-                    } label: {
-                        Text("+")
-                            .font(.custom("NotoSerifKR-Regular",size:26))
-                            .bold()
-                    }
+                NavigationLink {
+                    SearchUserView(firestore: fireStoreViewModel, friendViewModel: friendViewModel)
+                } label: {
+                    Text("+")
+                        .font(.custom("NotoSerifKR-Regular",size:26))
+                        .bold()
                 }
-   
         }
         }
         
