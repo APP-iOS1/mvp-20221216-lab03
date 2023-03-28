@@ -30,7 +30,8 @@ struct WritingView: View {
     
     
     var body: some View {
-        
+        GeometryReader{ g in
+            
         ZStack {
             Color("White")
                 .ignoresSafeArea()
@@ -45,38 +46,12 @@ struct WritingView: View {
                         .foregroundColor(Color("DarkGray"))
                         .padding(.leading, 50)
                 }
-                .frame(height: 50)
-                .offset(y: -90)
+                .frame(height: g.size.height/12.5)
+                .offset(y: -g.size.height/10)
                 
                 VStack(spacing: 20) {
                     HStack {
-                        Button {
-                            showModal3.toggle()
-                        } label: {
-                            if firestoreViewModel.sharedFriendList.isEmpty {
-                                Label("함께", systemImage: "plus")
-                                    .foregroundColor(Color("DarkGray"))
-                                    .font(.custom("NotoSerifKR-SemiBold", size: 15))
-                            } else {
-                                ForEach(firestoreViewModel.sharedFriendList, id: \.self) { user in
-                                    Text(user.nickName)
-                                        .foregroundColor(Color("DarkGray"))
-                                        .font(.custom("NotoSerifKR-SemiBold", size: 15))
-                                }
-                            }
-                        }
-                        .sheet(isPresented: $showModal3) {
-                            AddMarkerFriendView(fireStoreViewModel: firestoreViewModel)
-                                .presentationDetents([.medium])
-                        }
-                        Spacer()
-                        
-                        
-                    }
-                    
-                    HStack {
                         if location != [] {
-                            
                             Text("\(locationName)")
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color("DarkGray"))
@@ -111,7 +86,7 @@ struct WritingView: View {
                                 if let image = image{
                                     Image(uiImage: image)
                                         .resizable()
-                                        .frame(width: 100, height: 100)
+                                        .frame(width: g.size.width/5, height: g.size.width/5)
                                         .cornerRadius(15)
                                 } else {
                                     HStack {
@@ -132,20 +107,32 @@ struct WritingView: View {
                 
                 VStack {
                     TextField("제목", text: $travelName2)
+                        .scrollContentBackground(.hidden)
                         .foregroundColor(Color("DarkGray"))
-                        .frame(width: 380)
+                        .frame(width: g.size.width/1.1)
                         .font(.custom("NotoSerifKR-SemiBold", size: 15))
                     
                     Divider()
-                    
-                    TextField("내용", text: $travel)
-                        .foregroundColor(Color("DarkGray"))
-                        .frame(width: 380)
-                        .font(.custom("NotoSerifKR-SemiBold", size: 15))
+                    ZStack(alignment: .topLeading){
+                        if travel.isEmpty{
+                         Text("내용")
+                                .foregroundColor(Color.primary.opacity(0.25))
+                                .font(.custom("NotoSerifKR-SemiBold", size: 15))
+                                .padding(EdgeInsets(top: 7, leading: 4, bottom: 0, trailing: 0))
+                        }
+                        TextEditor(text: $travel)
+                            .scrollContentBackground(.hidden)
+                            .foregroundColor(Color("DarkGray"))
+                            .frame(height: g.size.height/3)
+                            .font(.custom("NotoSerifKR-SemiBold", size: 15))
+                    }
+                    .onAppear{
+                        UITextView.appearance().backgroundColor = .clear
+                    }.onDisappear{
+                        UITextView.appearance().backgroundColor = nil
+                    }
                 }
-                .padding(.bottom, 200)
-                
-                
+                .padding()
                 Button {
                     let id = UUID().uuidString
                     let createdAt = Date().timeIntervalSince1970
@@ -168,6 +155,8 @@ struct WritingView: View {
                 }
             }
         }
+    }
+        .ignoresSafeArea(.keyboard)
         .onAppear{ firestoreViewModel.nowCalendarId = recordingKey }
         .fullScreenCover(isPresented: $shouldShowImagePicker) {
             ImagePicker(image: $image)

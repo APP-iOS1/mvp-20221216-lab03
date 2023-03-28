@@ -28,9 +28,9 @@ struct GuestBookView: View {
         GeometryReader { geometry in
             //빙명록이 비어있을 경우
             if fireStoreViewModel.guestBookList.isEmpty {
-                
+
                 guestBookIsEmptyTexts
-                
+
             } else {
                 ZStack {
                     ScrollView {
@@ -200,13 +200,11 @@ struct GuestBookView: View {
 extension GuestBookView {
     
     private var guestBookIsEmptyTexts: some View {
-        VStack {
+        VStack(alignment: .center){
             Spacer()
-            Text("방명록이 비어있습니다!")
-                .font(.custom("NotoSerifKR-Bold", size: 17))
-            HStack {
+            HStack{
                 Spacer()
-                Text("방명록을 남겨주세요!")
+                Text("방명록이 비어있습니다!")
                     .font(.custom("NotoSerifKR-Bold", size: 17))
                 Spacer()
             }
