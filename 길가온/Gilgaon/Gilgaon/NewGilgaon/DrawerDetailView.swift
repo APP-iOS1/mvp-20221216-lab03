@@ -137,11 +137,9 @@ struct DrawerDetailView: View {
                             //                            AddFriendView(friendViewModel: friendViewModel)
                             FriendSettingView()
                         } label: {
-                            HStack{
-                                Text("\(fireStoreViewModel.myFriendArray.count)명의 친구")
-                                    .font(.custom("NotoSerifKR-Regular",size:16))
-                                Image(systemName: "person.2.fill")
-                            }
+                            Text("\(fireStoreViewModel.myFriendArray.count)명의 친구")
+                                .font(.custom("NotoSerifKR-Regular",size:16))
+                            
                         }.padding(.bottom, 5)
                         
                         HStack{
@@ -156,7 +154,6 @@ struct DrawerDetailView: View {
                     }
                     Spacer()
                 }
-                .padding(.bottom)
                 
                 HStack {
                     ForEach(middleViewArray, id: \.self) { select in

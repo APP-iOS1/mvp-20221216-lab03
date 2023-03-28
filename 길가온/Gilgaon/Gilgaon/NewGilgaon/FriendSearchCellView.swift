@@ -12,31 +12,28 @@ struct FriendSearchCellView: View {
     @ObservedObject var friendsearchViewModel: FriendSearchViewModel
     var friend: FriendModel
     var body: some View {
-        GeometryReader{ g in
-            HStack{
-                AsyncImage(url: URL(string: friend.userPhoto)) { Image in
-                    Image
-                        .resizable()
-                        .clipShape(Circle())
-                        .frame(width: g.size.width/9, height: g.size.width/9)
-                        
-                        .overlay(RoundedRectangle(cornerRadius: g.size.width/9)
-                            .stroke(Color("Pink"), lineWidth: 3))
-                        .padding(.trailing)
-                } placeholder: {
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(Color("Pink"))
-                        .frame(width: g.size.width/9, height: g.size.width/9)
-                        .aspectRatio(contentMode: .fit)
-                        .padding(.trailing)
-                }
-                Text("\(friend.nickName)")
-                Spacer()
-                Image(systemName: isChecked ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(Color("Red"))
+        HStack{
+            AsyncImage(url: URL(string: friend.userPhoto)) { Image in
+                Image
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 50, height: 50)
+                    .overlay(RoundedRectangle(cornerRadius: 64)
+                        .stroke(Color("Pink"), lineWidth: 3))
+                    .padding(.trailing, 10)
+            } placeholder: {
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(Color("Pink"))
+                    .frame(width: 50, height: 50)
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.trailing, 10)
             }
+            Text("\(friend.nickName)")
+            Spacer()
+            Image(systemName: isChecked ? "checkmark.circle.fill" : "circle")
+                    .foregroundColor(Color("Red"))
         }
         .contentShape(Rectangle())
         .onTapGesture {
