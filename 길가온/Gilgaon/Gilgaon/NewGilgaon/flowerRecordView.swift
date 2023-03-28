@@ -13,6 +13,7 @@ struct FlowerRecordView: View {
     @State private var titleString = ""
     @State private var sheetViewToggle = false
     @State private var friendList:[FriendModel] = []
+    
     @StateObject private var friendSearchViewModel = FriendSearchViewModel()
     
     @Environment(\.dismiss) private var dismiss
@@ -49,7 +50,7 @@ struct FlowerRecordView: View {
                             TextField("제목을 입력하세요.", text: $titleString )
                                 .fontWeight(.semibold)
                             Button {
-                                
+                                titleString = ""
                             } label: {
                                 Image(systemName: "delete.left.fill")
                             }
@@ -68,6 +69,7 @@ struct FlowerRecordView: View {
                             .font(.custom("NotoSerifKR-Regular",size:18))
                             .fontWeight(.semibold)
                     }
+                    .padding(.bottom)
                     
                     //[함께할 친구]
                     VStack(alignment: .leading){
@@ -98,7 +100,7 @@ struct FlowerRecordView: View {
                         
                         Spacer()
                     }
-                    .frame(width: 300,height: 150)
+                    .frame(height: g.size.height/8)
 
                     Spacer()
                     HStack(alignment:  .center){
@@ -117,13 +119,14 @@ struct FlowerRecordView: View {
                         } label: {
                             Text("기록하기")
                         }
+                        .disabled(titleString.trimmingCharacters(in: [" "]).isEmpty)
                         Spacer()
                     }
                     .foregroundColor(Color("Pink"))
                     .padding()
                 }
                 .frame(width: g.size.width/1.2,height: g.size.height/1.6)
-                .padding()
+                .padding(g.size.width/18)
                 .overlay{
                     Rectangle()
                         .stroke(Color("Red"), lineWidth: 1)
@@ -138,10 +141,12 @@ struct FlowerRecordView: View {
                 
             }
         }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
         
     }
     
 }
+
 
 extension Date{
     var currentDateString : String{
@@ -176,7 +181,7 @@ extension FlowerRecordView{
             Text("\(friend.nickName)")
             Button {
                 if let idx = friendList.firstIndex(of: friend) {
-                    friendList.remove(at:idx)
+                    withAnimation { friendList.remove(at:idx) }
                 }
                 
             } label: {
